@@ -1,6 +1,6 @@
 package monopoly;
 
-import monopoly.io.TextIO;
+import monopoly.gui.TextGUI;
 
 public final class Game {
 	private static final int MAX_TURNS = 3;
@@ -17,7 +17,7 @@ public final class Game {
 	}
 	
 	public void start() {
-		//players = TextIO.getPlayers();
+		// players = TextGUI.getPlayers();
 		players = new Players(4);
 		players.add(new Player("giancallo"));
 		players.add(new Player("yolanda"));
@@ -28,7 +28,7 @@ public final class Game {
 			playTurn(players.current());
 			
 			if ((consecutiveTurns == TURNS_TO_PRISON) && dice.same()) {
-				TextIO.prisonMessage();
+				TextGUI.prisonMessage();
 				// TODO codice che lo manda in prigione
 				consecutiveTurns = 0;
 			}
@@ -44,8 +44,8 @@ public final class Game {
 	}
 	
 	public void playTurn(Player player) {
-		TextIO.turnStartMessage(player);
-		dice = TextIO.getDice();
+		TextGUI.turnStartMessage(player);
+		dice = TextGUI.getDice();
 
 		// TODO il giocatore si sposta
 	}

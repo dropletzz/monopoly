@@ -1,9 +1,9 @@
-package monopoly.io;
+package monopoly.gui;
 
 import monopoly.*;
 import utils.InputDati;
 
-public final class TextIO {
+public final class TextGUI {
 
 	public static Players getPlayers() {
 		int num = InputDati.readInteger("Quanti giocatori? ", Players.MIN_PLAYERS, Players.MAX_PLAYERS);
@@ -13,7 +13,7 @@ public final class TextIO {
 			do {
 				p = getPlayer(i+1);
 				if (players.contains(p)) {
-					System.out.println("Nome già esistente! Reinseriscilo");
+					System.out.println("Nome gi?? esistente! Reinseriscilo");
 				}
 			} while (players.contains(p));
 			players.add(p);
