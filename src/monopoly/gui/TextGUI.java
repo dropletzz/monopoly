@@ -46,6 +46,10 @@ public final class TextGUI {
 		System.out.println(String.format("Sei sulla casella %d", p.getPosition()));
 	}
 	
+	public static void separator() {
+		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+	}
+	
 	/*public static void printBoard(Board board) {
 		for (int i = 0; i < board.DIMENSION; i ++) {
 			System.out.println(String.format("Slot %d: ", board.getSlot(i)));

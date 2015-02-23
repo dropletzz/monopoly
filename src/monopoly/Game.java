@@ -3,7 +3,7 @@ package monopoly;
 import monopoly.gui.TextGUI;
 
 public final class Game {
-	private static final int MAX_TURNS = 3;
+	private static final int MAX_TURNS = 600;
 	private static final int TURNS_TO_PRISON = 2;
 	
 	private Players players;
@@ -28,29 +28,33 @@ public final class Game {
 		
 		while (turnsPlayed < MAX_TURNS) {
 			playTurn(players.current());
-			
-			if ((consecutiveTurns == TURNS_TO_PRISON) && dice.same()) {
-				TextGUI.prisonMessage(players.current());
-				// TODO codice che lo manda in prigione
-				consecutiveTurns = 0;
-			}
-			else if (dice.same())
-				consecutiveTurns++;
-			
-			if (!dice.same() || consecutiveTurns == 0) {
-				players.next();
-				turnsPlayed++;
-				consecutiveTurns = 0;
-			}
+			decideNextPlayer();
+			TextGUI.separator();
 		}
 	}
 	
-	public void playTurn(Player player) {
+	private void playTurn(Player player) {
 		TextGUI.turnStartMessage(player);
 		TextGUI.printPosition(player);
 		dice = TextGUI.getDice();
 		board.move(player, dice.result());
+		board.action(players);
 		TextGUI.printPosition(player);
-		// TODO il giocatore si sposta
+	}
+	
+	private void decideNextPlayer() {
+		if ((consecutiveTurns == TURNS_TO_PRISON) && dice.same()) {
+			TextGUI.prisonMessage(players.current());
+			// TODO codice che lo manda in prigione
+			consecutiveTurns = 0;
+		}
+		else if (dice.same())
+			consecutiveTurns++;
+		
+		if (!dice.same() || consecutiveTurns == 0) {
+			players.next();
+			turnsPlayed++;
+			consecutiveTurns = 0;
+		}
 	}
 }

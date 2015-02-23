@@ -28,4 +28,7 @@ public final class Board {
 		p.setPosition((p.getPosition() + result) % dimension);
 	}
 
+	public int getPrisonPosition() {
+		return prison;
+	}
 }

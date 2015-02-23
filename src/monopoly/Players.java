@@ -1,7 +1,6 @@
 package monopoly;
 
 import java.util.Collections;
-import java.util.Queue;
 import java.util.Vector;
 import java.util.concurrent.ArrayBlockingQueue;
 
@@ -46,7 +45,7 @@ public final class Players {
 	public Players shuffle() {
 		Vector<Player> tmpPlayers = new Vector<Player>();
 		for (Player p:players)
-			tmpPlayers.add(p);	
+			tmpPlayers.add(p);
 		Collections.shuffle(tmpPlayers);
 		
 		Players newPlayers = new Players(players.size());

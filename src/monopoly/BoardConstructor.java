@@ -7,8 +7,9 @@ public final class BoardConstructor {
 	
 	public static Board createBoard() {
 		Board b = new Board(DIMENSION, PRISON_POSITION-1);
-		
+		for (int i=0; i<DIMENSION; i++) {
+			b.addSlot(new Prison(), i);
+		}
 		return b;
 	}
-
 }
