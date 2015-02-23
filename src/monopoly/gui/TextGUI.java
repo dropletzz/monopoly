@@ -13,7 +13,7 @@ public final class TextGUI {
 			do {
 				p = getPlayer(i+1);
 				if (players.contains(p)) {
-					System.out.println("Nome gi?? esistente! Reinseriscilo");
+					System.out.println("Nome gia' esistente! Reinseriscilo");
 				}
 			} while (players.contains(p));
 			players.add(p);
@@ -34,11 +34,21 @@ public final class TextGUI {
 		return new Dice(a,b);
 	}
 	
-	public static void prisonMessage() {
-		System.out.println("IN PRIGIONE!");
+	public static void prisonMessage(Player player) {
+		System.out.println(String.format("%s va in prigione!", player.getName()));
 	}
 	
 	public static void turnStartMessage(Player p) {
-		System.out.println(p.getName() + " tocca a te!");
+		System.out.println(String.format("%s tocca a te!", p.getName()));
 	}
+	
+	public static void printPosition(Player p) {
+		System.out.println(String.format("Sei sulla casella %d", p.getPosition()));
+	}
+	
+	/*public static void printBoard(Board board) {
+		for (int i = 0; i < board.DIMENSION; i ++) {
+			System.out.println(String.format("Slot %d: ", board.getSlot(i)));
+		}
+	}*/
 }

@@ -10,14 +10,16 @@ public final class Game {
 	private Dice dice;
 	private int turnsPlayed;
 	private byte consecutiveTurns;
+	private Board board;
 	
 	public Game() {
 		turnsPlayed = 0;
 		consecutiveTurns = 0;
+		board = BoardConstructor.createBoard();
 	}
 	
 	public void start() {
-		// players = TextGUI.getPlayers();
+		// players = TextGUI.getPlayers().shuffle();
 		players = new Players(4);
 		players.add(new Player("giancallo"));
 		players.add(new Player("yolanda"));
@@ -28,7 +30,7 @@ public final class Game {
 			playTurn(players.current());
 			
 			if ((consecutiveTurns == TURNS_TO_PRISON) && dice.same()) {
-				TextGUI.prisonMessage();
+				TextGUI.prisonMessage(players.current());
 				// TODO codice che lo manda in prigione
 				consecutiveTurns = 0;
 			}
@@ -45,8 +47,10 @@ public final class Game {
 	
 	public void playTurn(Player player) {
 		TextGUI.turnStartMessage(player);
+		TextGUI.printPosition(player);
 		dice = TextGUI.getDice();
-
+		board.move(player, dice.result());
+		TextGUI.printPosition(player);
 		// TODO il giocatore si sposta
 	}
 }

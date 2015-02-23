@@ -11,12 +11,12 @@ public final class Player {
 		this.position = DEFAULT_POSITION;
 	}
 	
-	public void move(int result) {
-		position += result;
-	}
-	
 	public int getPosition() {
 		return position;
+	}
+	
+	public void setPosition(int p) {
+		position = p;
 	}
 	
 	public String getName() {
