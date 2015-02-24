@@ -3,14 +3,14 @@ package monopoly;
 import monopoly.gui.TextGUI;
 
 public final class Game {
-	private static final int MAX_TURNS = 600;
+	private static final int MAX_TURNS = 20;
 	private static final int TURNS_TO_PRISON = 2;
 	
 	private Players players;
 	private Dice dice;
 	private int turnsPlayed;
 	private byte consecutiveTurns;
-	private Board board;
+	final private Board board;
 	
 	public Game() {
 		turnsPlayed = 0;
@@ -19,12 +19,7 @@ public final class Game {
 	}
 	
 	public void start() {
-		// players = TextGUI.getPlayers().shuffle();
-		players = new Players(4);
-		players.add(new Player("giancallo"));
-		players.add(new Player("yolanda"));
-		players.add(new Player("anguilla"));
-		players.add(new Player("frenk"));
+		players = TextGUI.getPlayers().shuffle();
 		
 		while (turnsPlayed < MAX_TURNS) {
 			playTurn(players.current());
@@ -45,8 +40,8 @@ public final class Game {
 	private void decideNextPlayer() {
 		if ((consecutiveTurns == TURNS_TO_PRISON) && dice.same()) {
 			TextGUI.prisonMessage(players.current());
-			// TODO codice che lo manda in prigione
-			consecutiveTurns = 0;
+                        board.moveToPrisonPosition(players.current());
+                        consecutiveTurns = 0;
 		}
 		else if (dice.same())
 			consecutiveTurns++;

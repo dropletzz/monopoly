@@ -2,9 +2,9 @@ package monopoly;
 
 public final class Board {
 	
-	private Slot slots [];
-	private int dimension;
-	private int prison;
+	final private Slot slots [];
+	final private int dimension;
+	final private int prison;
 	
 	public Board(int dimension, int prison) {
 		this.dimension = dimension;
@@ -26,6 +26,10 @@ public final class Board {
 
 	public void move(Player p, int result) {
 		p.setPosition((p.getPosition() + result) % dimension);
+	}
+        
+        public void moveToPrisonPosition(Player p) {
+		p.setPosition(prison);
 	}
 
 	public int getPrisonPosition() {

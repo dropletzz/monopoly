@@ -1,2 +1,7 @@
 **/.DS_Store
 bin
+/nbproject/private/
+/build/
+build.xml
+manifest.mf
+nbproject/
