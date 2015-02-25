@@ -28,7 +28,7 @@ public final class Board {
 		p.setPosition((p.getPosition() + result) % dimension);
 	}
         
-        public void moveToPrisonPosition(Player p) {
+        public void moveToPrison(Player p) {
 		p.setPosition(prison);
 	}
 
