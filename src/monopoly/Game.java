@@ -17,13 +17,18 @@ public final class Game implements Observer {
 		board.addObserver(this);
 		players = TextGUI.getPlayers().shuffle();
 		
-		while (board.getTurnsPlayed() < MAX_TURNS) {
+		while (board.getTurnsPlayed() < MAX_TURNS && !players.single()) {
 			TextGUI.turnStartMessage(players.current());
 			
 			dice = TextGUI.getDice();
 			board.playTurn(players, dice);
 			TextGUI.separator();
 		}
+		
+		if (players.single())
+			TextGUI.printWinner(players.current());
+		else
+			TextGUI.printWinners(players);
 	}
 
 	@Override

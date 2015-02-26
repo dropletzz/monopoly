@@ -1,6 +1,7 @@
 package monopoly;
 
 import java.util.Collections;
+import java.util.Queue;
 import java.util.Vector;
 import java.util.concurrent.ArrayBlockingQueue;
 
@@ -56,5 +57,17 @@ public final class Players {
 		for (Player p:tmpPlayers)
 			newPlayers.add(p);
 		return newPlayers;
+	}
+	
+	public boolean empty() {
+		return players.isEmpty();
+	}
+	
+	public boolean single() {
+		return players.size() == 1;
+	}
+	
+	public Queue<Player> toQueue() {
+		return players;
 	}
 }

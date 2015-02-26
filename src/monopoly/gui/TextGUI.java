@@ -48,7 +48,7 @@ public final class TextGUI {
 	}
 	
 	public static void separator() {
-		System.out.println("$∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞$");
+		System.out.println("$-------------------------------------------$");
 	}
 	
 	public static void playerBroke(Player p) {
@@ -57,6 +57,16 @@ public final class TextGUI {
 	
 	public static void alert(String s) {
 		System.out.println(s);
+	}
+	
+	public static void printWinner(Player p) {
+		System.out.println(String.format("HA VINTO %s", p.getName()));
+	}
+	
+	public static void printWinners(Players ps) {
+		for (Player p:ps.toQueue())
+			printWinner(p);
+		
 	}
 	
 	/*public static void printBoard(Board board) {
