@@ -42,7 +42,15 @@ public final class Player {
 		capital.add(amount);
 	}
 	
+	public void withdrawMoney(double amount) {
+		capital.sub(amount);
+	}
+	
 	public boolean broke() {
 		return capital.finished();
+	}
+	
+	public String getValue() {
+		return capital.getFormattedValue();
 	}
 }

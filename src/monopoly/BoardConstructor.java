@@ -10,7 +10,7 @@ public final class BoardConstructor {
 	public static Board createBoard() {
 		Board b = new Board(DIMENSION, PRISON_POSITION, START_BONUS);
 		for (int i=0; i<DIMENSION; i++) {
-			b.addSlot(new Prison(), i);
+			b.addSlot(new Tax("Hai comprato un pene di gomma", 1200), i);
 		}
 		return b;
 	}

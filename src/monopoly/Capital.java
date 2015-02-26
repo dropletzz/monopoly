@@ -3,7 +3,7 @@ package monopoly;
 public class Capital {
 	// invariante di classe -> value deve essere sempre positivo
 	private double value;
-	public static String symbol = "€";
+	public static String symbol = "euro";
 	public static double coefficient = 1;
 	
 	public Capital(double value) {

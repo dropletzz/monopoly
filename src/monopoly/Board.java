@@ -1,10 +1,9 @@
 package monopoly;
 
-import monopoly.gui.TextGUI;
-
-public final class Board {
+public final class Board extends MessageSender {
 	
 	private static final int TURNS_TO_PRISON = 2;
+	public static final String POSITION_MESSAGE = "Sei sulla casella %d";
 
 	final private Slot slots [];
 	final private int dimension;
@@ -37,10 +36,9 @@ public final class Board {
 
 	public void playTurn(Players ps, Dice d) {
 		Player p = ps.current();
-		// notify [posizione]
 		
 		if ((consecutiveTurns == TURNS_TO_PRISON) && d.same()) {
-			// notify TextGUI.prisonMessage(p);
+			notice(String.format("%s va in prigione!!", p.getName()));
 			moveToPrison(p);
 			consecutiveTurns = 0;
 			ps.next();
@@ -60,8 +58,8 @@ public final class Board {
 				ps.removeCurrent();
 			}
 			else {
-				if (!d.same()) {
-					// notify [posizione]
+				notice(String.format(POSITION_MESSAGE, p.getPosition()));
+				if (!d.same()) {	
 					ps.next();
 					consecutiveTurns = 0;
 					turnsPlayed++;

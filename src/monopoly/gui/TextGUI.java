@@ -39,7 +39,8 @@ public final class TextGUI {
 	}
 	
 	public static void turnStartMessage(Player p) {
-		System.out.println(String.format("%s tocca a te!", p.getName()));
+		System.out.println(String.format("%s tocca a te! [Casella %d]\nCapitale: %s",
+				p.getName(), p.getPosition(), p.getValue()));
 	}
 	
 	public static void printPosition(Player p) {
@@ -52,6 +53,10 @@ public final class TextGUI {
 	
 	public static void playerBroke(Player p) {
 		System.out.println(String.format("%s e' fallito!", p.getName()));
+	}
+	
+	public static void alert(String s) {
+		System.out.println(s);
 	}
 	
 	/*public static void printBoard(Board board) {
