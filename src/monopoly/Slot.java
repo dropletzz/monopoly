@@ -5,7 +5,7 @@ package monopoly;
  *
  */
 
-public abstract class Slot {
+public abstract class Slot extends MessageSender {
 	
 	private String name;
 	
@@ -14,6 +14,7 @@ public abstract class Slot {
 	 * @param name the name of the slot
 	 */
 	public Slot (String name) {	
+		super();
 		this.name = name;
 	}
 	

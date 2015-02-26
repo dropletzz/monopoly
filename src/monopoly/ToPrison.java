@@ -12,9 +12,10 @@ public class ToPrison extends Slot {
 	 * Constructor of ToPrison class
 	 * @param prisonPosition the initial position of this slot
 	 */
-	public ToPrison(int prisonPosition) {
-		super("IN PRIGIONE!");
+	public ToPrison(int prisonPosition, Observer o) {
+		super("Vai in prigione");
 		this.prisonPosition = prisonPosition;
+		this.addObserver(o);
 	}
 
 	/**
@@ -25,5 +26,6 @@ public class ToPrison extends Slot {
 	public void action(Players ps) {
 		Player p = ps.current();
 		p.setPosition(prisonPosition);
+		notice("IN PRIGIONE!");
 	}
 }

@@ -16,7 +16,7 @@ public final class Game implements Observer {
 	 * Constructor of Game class
 	 */
 	public Game() {
-		board = BoardConstructor.createBoard();
+		board = BoardConstructor.createBoard(this);
 	}
 	
 	/**

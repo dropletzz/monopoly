@@ -7,11 +7,15 @@ public final class BoardConstructor {
 	private final static int PRISON_POSITION = 10;
 	private final static double START_BONUS = 500;
 	
-	public static Board createBoard() {
+	public static Board createBoard(Observer o) {
 		Board b = new Board(DIMENSION, PRISON_POSITION, START_BONUS);
 
-		for (int i=0; i<DIMENSION; i++) {
-			b.addSlot(new Tax("Hai comprato un pene di gomma", 1200), i);
+		b.addSlot(new EmptySlot("VIA"), 0);
+		for (int i=1; i<DIMENSION; i++) {
+			if (i%2 == 0)
+				b.addSlot(new Tax("Hai comprato un bene di gomma", 1200), i);
+			else
+				b.addSlot(new ToPrison(PRISON_POSITION, o), i);
 		}
 		
 		return b;
