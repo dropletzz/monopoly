@@ -1,5 +1,10 @@
 package monopoly;
-
+/**
+ * 
+ * 
+ * @author Donatello Rovizzi & Giovanni Caniato
+ *
+ */
 public final class Board extends MessageSender {
 	
 	private static final int TURNS_TO_PRISON = 2;
@@ -12,7 +17,12 @@ public final class Board extends MessageSender {
 	private byte consecutiveTurns;
 	private int turnsPlayed;
 	
-	
+	/**
+	 * Constructor of Game class
+	 * @param dimension of the board
+	 * @param prison the slot of the prison
+	 * @param startBonus bonus if start slot is active 
+	 */
 	public Board(int dimension, int prison, double startBonus) {
 		this.dimension = dimension;
 		this.slots = new Slot [dimension];
@@ -38,7 +48,7 @@ public final class Board extends MessageSender {
 		Player p = ps.current();
 		
 		if ((consecutiveTurns == TURNS_TO_PRISON) && d.same()) {
-			notice(String.format("%s va in prigione!!", p.getName()));
+			notice(String.format("%s va in prigione!! [Casella %d]", p.getName(), prison));
 			moveToPrison(p);
 			consecutiveTurns = 0;
 			ps.next();
@@ -48,13 +58,13 @@ public final class Board extends MessageSender {
 			
 			if (passedStart(p, d.result())) {
 				p.addMoney(startBonus);
-				// notify
+				notice(String.format("%s e' passato dalla casella START: riceve 500.00 euro!", p.getName()));
 			}
 			
 			action(ps);
 			
 			if (p.broke()) {
-				// notify TextGUI.playerBroke(p);
+				notice(String.format("%s ESCE DALLA PARTITA!", p.getName()));
 				ps.removeCurrent();
 			}
 			else {

@@ -1,24 +1,46 @@
 package monopoly;
-
+/**
+ * 
+ * @author Donatello Rovizzi & Giovanni Caniato
+ *
+ */
 import java.util.Collections;
 import java.util.Queue;
 import java.util.Vector;
 import java.util.concurrent.ArrayBlockingQueue;
 
 public final class Players {
+	/**
+	 * the least number of players
+	 */
 	public final static int MIN_PLAYERS = 2;
+	/**
+	 * the biggest number of players
+	 */
 	public final static int MAX_PLAYERS = 6;
 
 	private ArrayBlockingQueue<Player> players;
 	
+	/**
+	 * Constructor of Players class
+	 * @param n number of players
+	 */
 	public Players(int n) {
 		players = new ArrayBlockingQueue<Player>(n);
 	}
 	
+	/**
+	 * 
+	 * @return the first player in the queue
+	 */
 	public Player current() {
 		return players.peek();
 	}
 	
+	/**
+	 * 
+	 * @return the array of the players queue unless the first
+	 */
 	public Player [] others() {
 		Player tmpPlayers [] = new Player [players.size() - 1];
 		int i = 0;
@@ -30,23 +52,43 @@ public final class Players {
 		return tmpPlayers;
 	}
 	
+	/**
+	 * 
+	 * @return the next player who has to play
+	 */
 	public Player next() {
 		players.add(players.poll());
 		return players.peek();
 	}
 	
+	/**
+	 * 
+	 * @param p player to be checked
+	 * @return true if the queue contains that player
+	 */
 	public boolean contains(Player p) {
 		return players.contains(p);
 	}
 	
+	/**
+	 * 
+	 * @param p add p at the queue
+	 */
 	public void add(Player p) {
 		players.add(p);
 	}
 	
+	/**
+	 * remove first player in the queue
+	 */
 	public void removeCurrent() {
 		players.poll();
 	}
 	
+	/**
+	 * 
+	 * @return the queue shuffled
+	 */
 	public Players shuffle() {
 		Vector<Player> tmpPlayers = new Vector<Player>();
 		for (Player p:players)
@@ -59,14 +101,26 @@ public final class Players {
 		return newPlayers;
 	}
 	
+	/**
+	 * 
+	 * @return true if the queue is empty
+	 */
 	public boolean empty() {
 		return players.isEmpty();
 	}
 	
+	/**
+	 * 
+	 * @return true if there is one player in the queue
+	 */
 	public boolean single() {
 		return players.size() == 1;
 	}
 	
+	/**
+	 * 
+	 * @return the queue of players
+	 */
 	public Queue<Player> toQueue() {
 		return players;
 	}

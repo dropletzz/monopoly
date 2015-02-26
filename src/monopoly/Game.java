@@ -1,7 +1,10 @@
 package monopoly;
-
 import monopoly.gui.TextGUI;
-
+/**
+ * 
+ * @author Donatello Rovizzi & Giovanni Caniato
+ *
+ */
 public final class Game implements Observer {
 	private static final int MAX_TURNS = 20;
 	
@@ -9,10 +12,16 @@ public final class Game implements Observer {
 	private Dice dice;
 	final private Board board;
 	
+	/**
+	 * Constructor of Game class
+	 */
 	public Game() {
 		board = BoardConstructor.createBoard();
 	}
 	
+	/**
+	 * start game
+	 */
 	public void start() {
 		board.addObserver(this);
 		players = TextGUI.getPlayers().shuffle();
@@ -31,11 +40,18 @@ public final class Game implements Observer {
 			TextGUI.printWinners(players);
 	}
 
+	/**
+	 * update the observer
+	 * @param message 
+	 */
 	@Override
 	public void update(String message) {
 		TextGUI.alert(message);
 	}
 
+	/**
+	 * update the observer
+	 */
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
