@@ -2,13 +2,17 @@ package monopoly;
 
 public final class Player {
 	public static final int DEFAULT_POSITION = 0;
+	public static final double STARTING_CAPITAL = 5000;
+	
 	
 	private String name;
 	private int position;
+	private Capital capital;
 	
 	public Player(String name) {
 		this.name = name;
 		this.position = DEFAULT_POSITION;
+		this.capital = new Capital(STARTING_CAPITAL);
 	}
 	
 	public int getPosition() {
@@ -27,7 +31,18 @@ public final class Player {
 		if (o instanceof Player)
 			return ((Player) o).name.equals(this.name);
 		else
-			return false;
-					
+			return false;	
+	}
+	
+	public Capital getCapital() {
+		return capital;
+	}
+	
+	public void addMoney(double amount) {
+		capital.add(amount);
+	}
+	
+	public boolean broke() {
+		return capital.finished();
 	}
 }

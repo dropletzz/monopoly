@@ -7,10 +7,6 @@ public final class Prison extends Slot {
 	}
 
 	@Override
-	public void action(Players p) {
-		
-	}
-	
-	
+	public void action(Players ps) {}
 
 }

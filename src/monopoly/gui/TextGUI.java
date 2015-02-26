@@ -47,7 +47,11 @@ public final class TextGUI {
 	}
 	
 	public static void separator() {
-		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+		System.out.println("$∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞$");
+	}
+	
+	public static void playerBroke(Player p) {
+		System.out.println(String.format("%s e' fallito!", p.getName()));
 	}
 	
 	/*public static void printBoard(Board board) {

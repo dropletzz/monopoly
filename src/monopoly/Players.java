@@ -42,6 +42,10 @@ public final class Players {
 		players.add(p);
 	}
 	
+	public void removeCurrent() {
+		players.poll();
+	}
+	
 	public Players shuffle() {
 		Vector<Player> tmpPlayers = new Vector<Player>();
 		for (Player p:players)
