@@ -32,6 +32,11 @@ public final class Board extends MessageSender {
 		this.turnsPlayed = 0;
 	}
 	
+	/**
+	 * 
+	 * @param index 
+	 * @return
+	 */
 	public Slot getSlot (int index) {
 		return slots[index];
 	}
