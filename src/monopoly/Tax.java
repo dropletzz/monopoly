@@ -19,7 +19,7 @@ public class Tax extends Slot {
 
 	/**
 	 * 
-	 * @param amount Players who hace to paid
+	 * @param amount Players who have to paid
 	 */
 	@Override
 	public void action(Players p) {

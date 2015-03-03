@@ -1,12 +1,20 @@
 package monopoly;
-
-
+/**
+ * 
+ * @author Donatello Rovizzi & Giovanni Caniato
+ *
+ */
 public final class BoardConstructor {
 	
 	private final static int DIMENSION = 40;
 	private final static int PRISON_POSITION = 10;
 	private final static double START_BONUS = 500;
 	
+	/**
+	 *
+	 * @param o the observer of the Board
+	 * @return the object Board
+	 */
 	public static Board createBoard(Observer o) {
 		Board b = new Board(DIMENSION, PRISON_POSITION, START_BONUS);
 

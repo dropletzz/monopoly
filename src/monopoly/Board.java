@@ -34,21 +34,35 @@ public final class Board extends MessageSender {
 	
 	/**
 	 * 
-	 * @param index 
-	 * @return
+	 * @param index the index of the slot 
+	 * @return the slot at the position of the index
 	 */
 	public Slot getSlot (int index) {
 		return slots[index];
 	}
 	
+	/**
+	 * 
+	 * @param s the slot to add
+	 * @param position the position of the slot
+	 */
 	public void addSlot(Slot s, int position) {
 		slots[position] = s;
 	}
 	
+	/**
+	 * 
+	 * @param p Players involved in the action
+	 */
 	public void action(Players p) {
 		slots[p.current().getPosition()].action(p);
 	}
 
+	/**
+	 * 
+	 * @param ps Players who have to play turn
+	 * @param d the Dice
+	 */
 	public void playTurn(Players ps, Dice d) {
 		Player p = ps.current();
 		
@@ -84,18 +98,36 @@ public final class Board extends MessageSender {
 		}
 	}
 	
+	/**
+	 * 
+	 * @param p the player who has moved
+	 * @param result the result of the roll dices
+	 * @return true il the player is passed by Start
+	 */
 	private boolean passedStart(Player p, int result) {
 		return (p.getPosition() + result) >= dimension;
 	}
         
+	/**
+	 * 
+	 * @param p the player who must go to the prison
+	 */
     public void moveToPrison(Player p) {
 		p.setPosition(prison);
 	}
 
+    /**
+     * 
+     * @return the position of the prison
+     */
 	public int getPrisonPosition() {
 		return prison;
 	}
 	
+	/**
+	 * 
+	 * @return the number of the turns played
+	 */
 	public int getTurnsPlayed() {
 		return turnsPlayed;
 	}
