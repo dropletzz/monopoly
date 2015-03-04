@@ -1,5 +1,8 @@
 package monopoly;
 
+import monopoly.slots.Slot;
+
+
 /**
  * 
  * @author Donatello Rovizzi & Giovanni Caniato

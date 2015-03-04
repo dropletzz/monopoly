@@ -9,6 +9,8 @@ import java.util.Queue;
 import java.util.Vector;
 import java.util.concurrent.ArrayBlockingQueue;
 
+import monopoly.slots.Property;
+
 public final class Players {
 	/**
 	 * the least number of players
@@ -123,5 +125,11 @@ public final class Players {
 	 */
 	public Queue<Player> toQueue() {
 		return players;
+	}
+	
+	public Player ownerOf(Property prop) {
+		for (Player p:players)
+			if (p.owns(prop)) return p;
+		return null;
 	}
 }

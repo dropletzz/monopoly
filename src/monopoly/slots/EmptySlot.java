@@ -1,4 +1,9 @@
-package monopoly;
+package monopoly.slots;
+
+import monopoly.Dice;
+import monopoly.Players;
+
+
 /**
  * 
  * @author Donatello Rovizzi & Giovanni Caniato
@@ -26,6 +31,6 @@ public final class EmptySlot extends Slot {
 	 * @param p Players must make an action
 	 */
 	@Override
-	public void action(Players p) {}
+	public void action(Players p, Dice d) {}
 
 }

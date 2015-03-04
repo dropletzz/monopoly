@@ -1,4 +1,9 @@
-package monopoly;
+package monopoly.slots;
+
+import monopoly.Dice;
+import monopoly.Players;
+
+
 /**
  * 
  * @author Donatello Rovizzi & Giovanni Caniato
@@ -22,7 +27,7 @@ public class Tax extends Slot {
 	 * @param amount Players who have to paid
 	 */
 	@Override
-	public void action(Players p) {
+	public void action(Players p, Dice d) {
 		p.current().withdrawMoney(amount);
 	}
 

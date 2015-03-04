@@ -1,4 +1,10 @@
 package monopoly;
+
+import java.util.Vector;
+
+import monopoly.slots.Group;
+import monopoly.slots.Property;
+
 /**
  * 
  * @author Donatello Rovizzi & Giovanni Caniato
@@ -18,6 +24,7 @@ public final class Player {
 	private String name;
 	private int position;
 	private Capital capital;
+	private Vector<Property> properties;
 	
 	/**
 	 * Constructor of Player class
@@ -103,5 +110,19 @@ public final class Player {
 	 */
 	public String getValue() {
 		return capital.getFormattedValue();
+	}
+	
+	public void addProperty(Property p) {
+		properties.add(p);
+	}
+	
+	public boolean owns(Property p) {
+		return properties.contains(p);
+	}
+	
+	public boolean owns(Group g) {
+		for (Property p:g.getProperties())
+			if (!this.owns(p)) return false;
+		return true;
 	}
 }

@@ -1,4 +1,8 @@
 package monopoly;
+
+import monopoly.slots.Slot;
+
+
 /**
  * 
  * 
@@ -54,8 +58,8 @@ public final class Board extends MessageSender {
 	 * 
 	 * @param p Players involved in the action
 	 */
-	public void action(Players p) {
-		slots[p.current().getPosition()].action(p);
+	private void action(Players p, Dice d) {
+		slots[p.current().getPosition()].action(p, d);
 	}
 
 	/**
@@ -80,7 +84,7 @@ public final class Board extends MessageSender {
 				notice(String.format("%s e' passato dalla casella START: riceve 500.00 euro!", p.getName()));
 			}
 			
-			action(ps);
+			action(ps, d);
 			
 			if (p.broke()) {
 				notice(String.format("%s ESCE DALLA PARTITA!", p.getName()));
@@ -102,7 +106,7 @@ public final class Board extends MessageSender {
 	 * 
 	 * @param p the player who has moved
 	 * @param result the result of the roll dices
-	 * @return true il the player is passed by Start
+	 * @return true the player is passed by Start
 	 */
 	private boolean passedStart(Player p, int result) {
 		return (p.getPosition() + result) >= dimension;
