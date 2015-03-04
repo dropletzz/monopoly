@@ -1,6 +1,9 @@
-package monopoly;
+package monopoly.slots;
 
-import monopoly.slots.Slot;
+import monopoly.Dice;
+import monopoly.Observer;
+import monopoly.Player;
+import monopoly.Players;
 
 
 /**
@@ -26,7 +29,7 @@ public class ToPrison extends Slot {
 	 * @param ps Players that have to go to the prison
 	 */
 	@Override
-	public void action(Players ps) {
+	public void action(Players ps, Dice d) {
 		Player p = ps.current();
 		p.setPosition(prisonPosition);
 		notice("IN PRIGIONE!");

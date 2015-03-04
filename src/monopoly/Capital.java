@@ -42,7 +42,7 @@ public class Capital {
 		return value;
 	}
 	
-	/*
+	/**
 	 * 
 	 * @param c capital to be added to current capital
 	 */

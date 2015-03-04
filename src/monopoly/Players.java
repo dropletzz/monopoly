@@ -10,6 +10,7 @@ import java.util.Vector;
 import java.util.concurrent.ArrayBlockingQueue;
 
 import monopoly.slots.Property;
+import monopoly.slots.Terrain;
 
 public final class Players {
 	/**

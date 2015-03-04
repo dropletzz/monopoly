@@ -2,6 +2,7 @@ package monopoly;
 
 import monopoly.slots.EmptySlot;
 import monopoly.slots.Tax;
+import monopoly.slots.ToPrison;
 
 
 /**

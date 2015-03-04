@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import monopoly.slots.Group;
 import monopoly.slots.Property;
+import monopoly.slots.Terrain;
 
 /**
  * 
@@ -94,6 +95,22 @@ public final class Player {
 	 */
 	public void withdrawMoney(double amount) {
 		capital.sub(amount);
+	}
+	
+	/**
+	 * 
+	 * @param c amount of money to be added
+	 */
+	public void addMoney(Capital c) {
+		capital.add(c);
+	}
+	
+	/**
+	 * 
+	 * @param c amount of money to be remove
+	 */
+	public void withdrawMoney(Capital c) {
+		capital.sub(c);
 	}
 	
 	/**

@@ -1,6 +1,7 @@
-package monopoly;
+package monopoly.slots;
 
-import monopoly.slots.Slot;
+import monopoly.Dice;
+import monopoly.Players;
 
 
 /**
@@ -22,6 +23,6 @@ public final class Prison extends Slot {
 	 * @param ps Players must go to prison
 	 */
 	@Override
-	public void action(Players ps) {}
+	public void action(Players ps, Dice d) {}
 
 }
