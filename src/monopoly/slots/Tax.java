@@ -2,11 +2,10 @@ package monopoly.slots;
 
 import monopoly.Dice;
 import monopoly.Players;
-
-
 /**
  * 
- * @author Donatello Rovizzi & Giovanni Caniato
+ * 
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
 public class Tax extends Slot {

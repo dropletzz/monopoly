@@ -1,11 +1,10 @@
 package monopoly;
 
 import monopoly.slots.*;
-
-
 /**
  * 
- * @author Donatello Rovizzi & Giovanni Caniato
+ * 
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
 public final class BoardConstructor {

@@ -2,7 +2,7 @@ package monopoly;
 /**
  * 
  * 
- * @author Donatello Rovizzi & Giovanni Caniato
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
 public final class Dice {
@@ -33,7 +33,7 @@ public final class Dice {
 	 * @return sum of two rolls
 	 */
 	public int result() {
-		return a+b;
+		return a + b;
 	}
 	
 	/**

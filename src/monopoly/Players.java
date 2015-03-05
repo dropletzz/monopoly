@@ -1,17 +1,17 @@
 package monopoly;
-/**
- * 
- * @author Donatello Rovizzi & Giovanni Caniato
- *
- */
+
 import java.util.Collections;
 import java.util.Queue;
 import java.util.Vector;
 import java.util.concurrent.ArrayBlockingQueue;
-
 import monopoly.slots.Property;
-import monopoly.slots.Terrain;
 
+/**
+ * 
+ * 
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
+ *
+ */
 public final class Players {
 	/**
 	 * the least number of players

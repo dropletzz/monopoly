@@ -2,7 +2,8 @@ package monopoly;
 import java.util.Vector;
 /**
  * 
- * @author Donatello Rovizzi & Giovanni Caniato
+ * 
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
 public abstract class MessageSender {

@@ -1,14 +1,12 @@
 package monopoly;
 
 import java.util.Vector;
-
 import monopoly.slots.Group;
 import monopoly.slots.Property;
-import monopoly.slots.Terrain;
-
 /**
  * 
- * @author Donatello Rovizzi & Giovanni Caniato
+ * 
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
 public final class Player {
@@ -130,17 +128,41 @@ public final class Player {
 		return capital.getFormattedValue();
 	}
 	
+	/**
+	 * 
+	 * @param p the player add p of his properties 
+	 */
 	public void addProperty(Property p) {
 		properties.add(p);
 	}
 	
+	/**
+	 * 
+	 * @param p property to be checked
+	 * @return true if the palyer has the property
+	 */
 	public boolean owns(Property p) {
 		return properties.contains(p);
 	}
 	
+	/**
+	 * 
+	 * @param g the group of properties
+	 * @return true if the player controls all group
+	 */
 	public boolean owns(Group g) {
 		for (Property p:g.getProperties())
 			if (!this.owns(p)) return false;
 		return true;
+	}
+	
+	/**
+	 * 
+	 * @return the vector of all properties of the player
+	 */
+	public Vector<Property> getProperties() {
+		if (properties.size() > 0)
+			return properties;
+		return null;
 	}
 }

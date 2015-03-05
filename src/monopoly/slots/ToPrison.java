@@ -4,11 +4,10 @@ import monopoly.Dice;
 import monopoly.Observer;
 import monopoly.Player;
 import monopoly.Players;
-
-
 /**
  * 
- * @author Donatello Rovizzi & Giovanni Caniato
+ * 
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
 public class ToPrison extends Slot {

@@ -2,7 +2,7 @@ package monopoly;
 /**
  * 
  * 
- * @author Donatello Rovizzi & Giovanni Caniato
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
 public class Capital {

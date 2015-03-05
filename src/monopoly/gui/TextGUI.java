@@ -2,7 +2,12 @@ package monopoly.gui;
 
 import monopoly.*;
 import utils.InputDati;
-
+/**
+ * 
+ * 
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
+ *
+ */
 public final class TextGUI {
 
 	public static Players getPlayers() {
@@ -66,8 +71,19 @@ public final class TextGUI {
 	public static void printWinners(Players ps) {
 		for (Player p:ps.toQueue())
 			printWinner(p);
-		
 	}
+	
+	public static void printPropertiesPlayer(Player p) {
+		System.out.println(String.format("\nVa sulla casella %d\nCapitale: %s", p.getPosition(), p.getValue()));
+		if(p.getProperties() == null)
+			System.out.println(String.format("%s non e' in possesso di nessuna proprieta'", p.getName()));
+		else {
+			System.out.println(String.format("%s e' in possesso di:", p.getName()));
+			for (int i = 0; i < p.getProperties().size(); i++)
+				System.out.println(String.format("\t-%s", p.getProperties().get(i).getName()));
+		}
+	}
+	
 	
 	/*public static void printBoard(Board board) {
 		for (int i = 0; i < board.DIMENSION; i ++) {

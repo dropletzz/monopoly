@@ -1,12 +1,11 @@
 package monopoly;
 
+import monopoly.gui.TextGUI;
 import monopoly.slots.*;
-
-
 /**
  * 
  * 
- * @author Donatello Rovizzi & Giovanni Caniato
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
 public final class Board extends MessageSender {
@@ -74,31 +73,33 @@ public final class Board extends MessageSender {
 			notice(String.format("%s va in prigione!! [Casella %d]", p.getName(), prison));
 			moveToPrison(p);
 			consecutiveTurns = 0;
+			/*SOLO PROVA!!*/
+			TextGUI.printPropertiesPlayer(p);
 			ps.next();
-		}
-		else {
-			p.setPosition((p.getPosition() + d.result()) % dimension);
-			
+		} else {
 			if (passedStart(p, d.result())) {
 				p.addMoney(startBonus);
 				notice(String.format("%s e' passato dalla casella START: riceve 500.00 euro!", p.getName()));
 			}
+			
+			p.setPosition((p.getPosition() + d.result()) % dimension);
 			
 			action(ps, d);
 			
 			if (p.broke()) {
 				notice(String.format("%s ESCE DALLA PARTITA!", p.getName()));
 				ps.removeCurrent();
-			}
-			else {
+			} else {
 				notice(String.format(POSITION_MESSAGE, p.getPosition()));
 				if (!d.same()) {	
 					ps.next();
 					consecutiveTurns = 0;
 					turnsPlayed++;
-				}
-				else consecutiveTurns++;
+				} else consecutiveTurns++;
+				/*SOLO PROVA!!*/
+				TextGUI.printPropertiesPlayer(p);
 			}
+			
 		}
 	}
 	
@@ -136,12 +137,21 @@ public final class Board extends MessageSender {
 		return turnsPlayed;
 	}
 	
+	/**
+	 *
+	 * @param o the observer to add
+	 */
 	public void addObserver(Observer o) {
 		for (Slot s:slots) {
 			s.addObserver(o);
 		}
 	}
 	
+	/**
+	 * 
+	 * @param index the index of the property
+	 * @return the property at the passed index
+	 */
 	public Property getProperty(int index) {
 		if (slots[index] instanceof Property)
 			return (Property) slots[index];

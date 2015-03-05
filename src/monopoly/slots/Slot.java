@@ -3,14 +3,12 @@ package monopoly.slots;
 import monopoly.Dice;
 import monopoly.MessageSender;
 import monopoly.Players;
-
-
 /**
  * 
- * @author Donatello Rovizzi & Giovanni Caniato
+ * 
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
-
 public abstract class Slot extends MessageSender {
 	
 	private String name;

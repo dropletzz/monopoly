@@ -2,7 +2,8 @@ package monopoly;
 import monopoly.gui.TextGUI;
 /**
  * 
- * @author Donatello Rovizzi & Giovanni Caniato
+ * 
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
 public final class Game implements Observer {
@@ -32,6 +33,7 @@ public final class Game implements Observer {
 			
 			dice = TextGUI.getDice();
 			board.playTurn(players, dice);
+			//TextGUI.printPropertiesPlayer(players.current());
 			TextGUI.separator();
 		}
 		

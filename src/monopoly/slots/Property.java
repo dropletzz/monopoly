@@ -4,12 +4,21 @@ import monopoly.Capital;
 import monopoly.Dice;
 import monopoly.Player;
 import monopoly.Players;
-
+/**
+ * 
+ * 
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
+ *
+ */
 public abstract class Property extends Slot {
 
 	private Capital cost;
 	private Group group;
-	
+	/**
+	 * Constructor of Property class
+	 * @param name the name of the slot
+	 * @param value the value of the slot
+	 */
 	public Property(String name, double value) {
 		super(name);
 		this.cost =  new Capital(value);
@@ -17,6 +26,9 @@ public abstract class Property extends Slot {
 	
 	protected abstract double calculateAmount(Player owner, Dice d);
 	
+	/**
+	 * the action of the slot
+	 */
 	@Override
 	public void action(Players ps, Dice d) {
 		Player owner = ps.ownerOf(this);
@@ -33,18 +45,34 @@ public abstract class Property extends Slot {
 			}
 	}
 	
+	/**
+	 * 
+	 * @return the Capital of the slot
+	 */
 	public Capital getCost() {
 		return cost;
 	}
 	
+	/**
+	 * 
+	 * @return the value of the slot
+	 */
 	public double getValue() {
 		return cost.getValue();
 	}
 	
+	/**
+	 * 
+	 * @return the Group
+	 */
 	public Group getGroup() {
 		return group;
 	}
 
+	/**
+	 * 
+	 * @param group set group as Group of the slot
+	 */
 	public void setGroup(Group group) {
 		this.group = group;
 	}
