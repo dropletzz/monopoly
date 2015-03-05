@@ -14,8 +14,8 @@ public final class Prison extends Slot {
 	/**
 	 * Constructor of Prison class
 	 */
-	public Prison() {
-		super("Prigione");
+	public Prison(String name) {
+		super(name);
 	}
 	
 	/**

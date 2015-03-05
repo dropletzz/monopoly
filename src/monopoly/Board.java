@@ -1,6 +1,6 @@
 package monopoly;
 
-import monopoly.slots.Slot;
+import monopoly.slots.*;
 
 
 /**
@@ -134,5 +134,18 @@ public final class Board extends MessageSender {
 	 */
 	public int getTurnsPlayed() {
 		return turnsPlayed;
+	}
+	
+	public void addObserver(Observer o) {
+		for (Slot s:slots) {
+			s.addObserver(o);
+		}
+	}
+	
+	public Property getProperty(int index) {
+		if (slots[index] instanceof Property)
+			return (Property) slots[index];
+		return null;
+			
 	}
 }

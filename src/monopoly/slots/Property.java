@@ -30,7 +30,7 @@ public abstract class Property extends Slot {
 				double amt = calculateAmount(owner, d);
 				current.withdrawMoney(amt);
 				owner.addMoney(amt);
-			}	
+			}
 	}
 	
 	public Capital getCost() {

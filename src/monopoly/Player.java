@@ -35,6 +35,7 @@ public final class Player {
 		this.name = name;
 		this.position = DEFAULT_POSITION;
 		this.capital = new Capital(STARTING_CAPITAL);
+		this.properties = new Vector<Property>();
 	}
 	
 	/**

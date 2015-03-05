@@ -16,7 +16,8 @@ public final class Game implements Observer {
 	 * Constructor of Game class
 	 */
 	public Game() {
-		board = BoardConstructor.createBoard(this);
+		board = BoardConstructor.createBoard();
+		board.addObserver(this);
 	}
 	
 	/**
@@ -53,8 +54,5 @@ public final class Game implements Observer {
 	 * update the observer
 	 */
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void update() {}
 }
