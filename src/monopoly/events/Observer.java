@@ -1,4 +1,4 @@
-package monopoly;
+package monopoly.events;
 /**
  * 
  * 
@@ -10,10 +10,5 @@ public interface Observer {
 	 * 
 	 * @param message 
 	 */
-	public void update(String message);
-	
-	/**
-	 * 
-	 */
-	public void update();
+	public void handleEvent(Event e);
 }

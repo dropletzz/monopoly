@@ -2,6 +2,7 @@ package monopoly.slots;
 
 import monopoly.Dice;
 import monopoly.Player;
+import monopoly.PlayerToPrison;
 import monopoly.Players;
 /**
  * 
@@ -29,6 +30,6 @@ public class ToPrison extends Slot {
 	public void action(Players ps, Dice d) {
 		Player p = ps.current();
 		p.setPosition(prisonPosition);
-		notice("IN PRIGIONE!");
+		notice(new PlayerToPrison(p));
 	}
 }

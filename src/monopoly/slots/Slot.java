@@ -1,15 +1,15 @@
 package monopoly.slots;
 
 import monopoly.Dice;
-import monopoly.MessageSender;
 import monopoly.Players;
+import monopoly.events.EventGenerator;
 /**
  * 
  * 
  * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
-public abstract class Slot extends MessageSender {
+public abstract class Slot extends EventGenerator {
 	
 	private String name;
 	

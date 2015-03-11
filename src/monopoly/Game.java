@@ -1,4 +1,6 @@
 package monopoly;
+import monopoly.events.Event;
+import monopoly.events.Observer;
 import monopoly.gui.TextGUI;
 /**
  * 
@@ -49,13 +51,7 @@ public final class Game implements Observer {
 	 * @param message 
 	 */
 	@Override
-	public void update(String message) {
-		TextGUI.alert(message);
+	public void handleEvent(Event e) {
+		TextGUI.alert(e.getMessage());
 	}
-
-	/**
-	 * update the observer
-	 */
-	@Override
-	public void update() {}
 }

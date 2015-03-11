@@ -1,5 +1,7 @@
 package monopoly;
 
+import monopoly.events.EventGenerator;
+import monopoly.events.Observer;
 import monopoly.slots.*;
 /**
  * 
@@ -7,7 +9,7 @@ import monopoly.slots.*;
  * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
-public final class Board extends MessageSender {
+public final class Board extends EventGenerator {
 	
 	private static final int TURNS_TO_PRISON = 2;
 	public static final String POSITION_MESSAGE = "Sei sulla casella %d";
@@ -69,25 +71,25 @@ public final class Board extends MessageSender {
 		Player p = ps.current();
 		
 		if ((consecutiveTurns == TURNS_TO_PRISON) && d.same()) {
-			notice(String.format("%s va in prigione!!", p.getName()));
+			notice(new PlayerToPrison(p));
 			moveToPrison(p);
 			consecutiveTurns = 0;
 			ps.next();
 		} else {
 			if (passedStart(p, d.result())) {
 				p.addMoney(startBonus);
-				notice(String.format("%s e' passato dalla casella START: riceve 500.00 euro!", p.getName()));
+				//notice(String.format("%s e' passato dalla casella START: riceve 500.00 euro!", p.getName()));
 			}
 			
 			p.setPosition((p.getPosition() + d.result()) % dimension);
 			
 			action(ps, d);
-			//
+
 			if (p.broke()) {
-				notice(String.format("%s ESCE DALLA PARTITA!", p.getName()));
+				//notice(String.format("%s ESCE DALLA PARTITA!", p.getName()));
 				ps.removeCurrent();
 			} else {
-				notice(String.format(POSITION_MESSAGE, p.getPosition()));
+				//notice(String.format(POSITION_MESSAGE, p.getPosition()));
 				if (!d.same()) {	
 					ps.next();
 					consecutiveTurns = 0;

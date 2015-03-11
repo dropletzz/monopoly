@@ -1,4 +1,4 @@
-package monopoly;
+package monopoly.events;
 import java.util.Vector;
 /**
  * 
@@ -6,14 +6,14 @@ import java.util.Vector;
  * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
-public abstract class MessageSender {
+public abstract class EventGenerator {
 
 	private Vector<Observer> observers;
 	
 	/**
 	 * Constructor of MessageSender class
 	 */
-	public MessageSender() {
+	public EventGenerator() {
 		observers = new Vector<Observer>();
 	}
 	
@@ -21,18 +21,9 @@ public abstract class MessageSender {
 	 * 
 	 * @param message message to be notified
 	 */
-	public void notice(String message) {
+	public void notice(Event e) {
 		for (Observer o:observers) {
-			o.update(message);
-		}
-	}
-	
-	/**
-	 * the notify
-	 */
-	public void notice() {
-		for (Observer o:observers) {
-			o.update();
+			o.handleEvent(e);
 		}
 	}
 	
