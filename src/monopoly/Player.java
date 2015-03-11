@@ -165,4 +165,8 @@ public final class Player {
 			return properties;
 		return null;
 	}
+	
+	public boolean canBuy(Property p) {
+		return p.getValue() < capital.getValue();
+	}
 }

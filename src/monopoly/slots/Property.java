@@ -34,8 +34,10 @@ public abstract class Property extends Slot {
 		Player owner = ps.ownerOf(this);
 		Player current = ps.current();
 		if (owner == null) {
-			current.withdrawMoney(cost);
-			current.addProperty(this);
+			if (current.canBuy(this)) {
+				current.withdrawMoney(cost);
+				current.addProperty(this);
+			}
 		}
 		else
 			if (!owner.equals(current)) {

@@ -1,6 +1,5 @@
 package monopoly;
 
-import monopoly.gui.TextGUI;
 import monopoly.slots.*;
 /**
  * 
@@ -70,11 +69,9 @@ public final class Board extends MessageSender {
 		Player p = ps.current();
 		
 		if ((consecutiveTurns == TURNS_TO_PRISON) && d.same()) {
-			notice(String.format("%s va in prigione!! [Casella %d]", p.getName(), prison));
+			notice(String.format("%s va in prigione!!", p.getName()));
 			moveToPrison(p);
 			consecutiveTurns = 0;
-			/*SOLO PROVA!!*/
-			TextGUI.printPropertiesPlayer(p);
 			ps.next();
 		} else {
 			if (passedStart(p, d.result())) {
@@ -85,7 +82,7 @@ public final class Board extends MessageSender {
 			p.setPosition((p.getPosition() + d.result()) % dimension);
 			
 			action(ps, d);
-			
+			//
 			if (p.broke()) {
 				notice(String.format("%s ESCE DALLA PARTITA!", p.getName()));
 				ps.removeCurrent();
@@ -96,8 +93,6 @@ public final class Board extends MessageSender {
 					consecutiveTurns = 0;
 					turnsPlayed++;
 				} else consecutiveTurns++;
-				/*SOLO PROVA!!*/
-				TextGUI.printPropertiesPlayer(p);
 			}
 			
 		}
@@ -142,6 +137,7 @@ public final class Board extends MessageSender {
 	 * @param o the observer to add
 	 */
 	public void addObserver(Observer o) {
+		super.addObserver(o);
 		for (Slot s:slots) {
 			s.addObserver(o);
 		}

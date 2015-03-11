@@ -10,7 +10,6 @@ public final class Game implements Observer {
 	private static final int MAX_TURNS = 20;
 	
 	private Players players;
-	private Dice dice;
 	final private Board board;
 	
 	/**
@@ -25,15 +24,17 @@ public final class Game implements Observer {
 	 * start game
 	 */
 	public void start() {
-		board.addObserver(this);
+		Player current;
 		players = TextGUI.getPlayers().shuffle();
 		
 		while (board.getTurnsPlayed() < MAX_TURNS && !players.single()) {
-			TextGUI.turnStartMessage(players.current());
+			current = players.current();
+			TextGUI.turnStartMessage(current);
 			
-			dice = TextGUI.getDice();
-			board.playTurn(players, dice);
-			//TextGUI.printPropertiesPlayer(players.current());
+			board.playTurn(players, TextGUI.getDice());
+			
+			if (players.contains(current))
+				TextGUI.printPropertiesPlayer(current);
 			TextGUI.separator();
 		}
 		
