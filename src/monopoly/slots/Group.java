@@ -25,5 +25,4 @@ public class Group {
 	public Property[] getProperties() {
 		return properties;
 	}
-
 }

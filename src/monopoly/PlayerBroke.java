@@ -2,9 +2,9 @@ package monopoly;
 
 import monopoly.events.Event;
 
-public class PlayerBroke extends Event {
+public class PlayerBroke implements Event {
 	
-	public Player player;
+	private Player player;
 	
 	public PlayerBroke(Player player) {
 		this.player = player;
@@ -12,5 +12,9 @@ public class PlayerBroke extends Event {
 	
 	public String getMessage() {
 		return String.format("%s ESCE DALLA PARTITA!", player.getName());
+	}
+
+	public Player getPlayer() {
+		return player;
 	}
 }

@@ -35,7 +35,7 @@ public final class Game implements Observer {
 			
 			board.playTurn(players, TextGUI.getDice());
 			
-			if (players.contains(current))
+			if (!current.broke())
 				TextGUI.printPropertiesPlayer(current);
 			TextGUI.separator();
 		}
@@ -47,7 +47,7 @@ public final class Game implements Observer {
 	}
 
 	/**
-	 * update the observer
+	 * respond to a generic event by printing the event's message
 	 * @param message 
 	 */
 	@Override

@@ -78,7 +78,7 @@ public final class Board extends EventGenerator {
 		} else {
 			if (passedStart(p, d.result())) {
 				p.addMoney(startBonus);
-				//notice(String.format("%s e' passato dalla casella START: riceve 500.00 euro!", p.getName()));
+				notice(new PlayerByStart(p));
 			}
 			
 			p.setPosition((p.getPosition() + d.result()) % dimension);
@@ -86,10 +86,9 @@ public final class Board extends EventGenerator {
 			action(ps, d);
 
 			if (p.broke()) {
-				//notice(String.format("%s ESCE DALLA PARTITA!", p.getName()));
+				notice(new PlayerBroke(p));
 				ps.removeCurrent();
 			} else {
-				//notice(String.format(POSITION_MESSAGE, p.getPosition()));
 				if (!d.same()) {	
 					ps.next();
 					consecutiveTurns = 0;
