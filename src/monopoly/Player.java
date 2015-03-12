@@ -166,6 +166,11 @@ public final class Player {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @param p the property 
+	 * @return true if the player can buy the property
+	 */
 	public boolean canBuy(Property p) {
 		return p.getValue() < capital.getValue();
 	}

@@ -128,6 +128,11 @@ public final class Players {
 		return players;
 	}
 	
+	/**
+	 * 
+	 * @param prop the property
+	 * @return the owner player of the property if he exist
+	 */
 	public Player ownerOf(Property prop) {
 		for (Player p:players)
 			if (p.owns(prop)) return p;
