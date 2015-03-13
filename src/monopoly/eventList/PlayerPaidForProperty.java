@@ -1,5 +1,6 @@
-package monopoly;
+package monopoly.eventList;
 
+import monopoly.Player;
 import monopoly.events.Event;
 import monopoly.slots.Property;
 

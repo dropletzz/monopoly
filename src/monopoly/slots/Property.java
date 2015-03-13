@@ -3,9 +3,9 @@ package monopoly.slots;
 import monopoly.Capital;
 import monopoly.Dice;
 import monopoly.Player;
-import monopoly.PlayerBoughtProperty;
-import monopoly.PlayerPaidForProperty;
 import monopoly.Players;
+import monopoly.eventList.PlayerBoughtProperty;
+import monopoly.eventList.PlayerPaidForProperty;
 /**
  * 
  * 

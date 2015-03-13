@@ -1,5 +1,8 @@
 package monopoly;
 
+import monopoly.eventList.PlayerBroke;
+import monopoly.eventList.PlayerByStart;
+import monopoly.eventList.PlayerToPrison;
 import monopoly.events.EventGenerator;
 import monopoly.events.Observer;
 import monopoly.slots.*;
@@ -22,7 +25,7 @@ public final class Board extends EventGenerator {
 	private int turnsPlayed;
 	
 	/**
-	 * Constructor of Game class
+	 * Constructor of Board class
 	 * @param dimension of the board
 	 * @param prison the slot of the prison
 	 * @param startBonus bonus if start slot is active 

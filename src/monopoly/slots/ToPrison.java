@@ -2,8 +2,8 @@ package monopoly.slots;
 
 import monopoly.Dice;
 import monopoly.Player;
-import monopoly.PlayerToPrison;
 import monopoly.Players;
+import monopoly.eventList.PlayerToPrison;
 /**
  * 
  * 
