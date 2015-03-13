@@ -3,7 +3,6 @@ package monopoly;
 import monopoly.event_handlers.EventGenerator;
 import monopoly.event_handlers.Observer;
 import monopoly.events.PlayerBroke;
-import monopoly.events.PlayerByStart;
 import monopoly.events.PlayerToPrison;
 import monopoly.slots.*;
 /**

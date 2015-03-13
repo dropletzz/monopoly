@@ -1,6 +1,5 @@
 package monopoly.slots;
 
-import monopoly.Dice;
 import monopoly.Players;
 /**
  * 
