@@ -1,10 +1,10 @@
 package monopoly;
 
-import monopoly.eventList.PlayerBroke;
-import monopoly.eventList.PlayerByStart;
-import monopoly.eventList.PlayerToPrison;
-import monopoly.events.EventGenerator;
-import monopoly.events.Observer;
+import monopoly.event_handlers.EventGenerator;
+import monopoly.event_handlers.Observer;
+import monopoly.events.PlayerBroke;
+import monopoly.events.PlayerByStart;
+import monopoly.events.PlayerToPrison;
 import monopoly.slots.*;
 /**
  * 

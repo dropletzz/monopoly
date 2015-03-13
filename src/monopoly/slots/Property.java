@@ -4,8 +4,8 @@ import monopoly.Capital;
 import monopoly.Dice;
 import monopoly.Player;
 import monopoly.Players;
-import monopoly.eventList.PlayerBoughtProperty;
-import monopoly.eventList.PlayerPaidForProperty;
+import monopoly.events.PlayerBoughtProperty;
+import monopoly.events.PlayerPaidForProperty;
 /**
  * 
  * 

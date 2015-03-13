@@ -2,7 +2,7 @@ package monopoly.slots;
 
 import monopoly.Dice;
 import monopoly.Players;
-import monopoly.events.EventGenerator;
+import monopoly.event_handlers.EventGenerator;
 /**
  * 
  * 

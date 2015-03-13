@@ -1,6 +1,6 @@
 package monopoly;
-import monopoly.events.Event;
-import monopoly.events.Observer;
+import monopoly.event_handlers.Event;
+import monopoly.event_handlers.Observer;
 import monopoly.gui.TextGUI;
 /**
  * 

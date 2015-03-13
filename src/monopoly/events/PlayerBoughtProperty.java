@@ -1,7 +1,7 @@
-package monopoly.eventList;
+package monopoly.events;
 
 import monopoly.Player;
-import monopoly.events.Event;
+import monopoly.event_handlers.Event;
 import monopoly.slots.Property;
 
 public class PlayerBoughtProperty implements Event {
