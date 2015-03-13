@@ -1,7 +1,6 @@
 package monopoly.slots;
 
 import monopoly.Capital;
-import monopoly.Dice;
 import monopoly.Player;
 import monopoly.Players;
 import monopoly.events.PlayerBoughtProperty;
@@ -26,13 +25,13 @@ public abstract class Property extends Slot {
 		this.cost =  new Capital(value);
 	}
 	
-	protected abstract double calculateAmount(Player owner, Dice d);
+	protected abstract double calculateAmount(Player owner, int result);
 	
 	/**
 	 * the action of the slot
 	 */
 	@Override
-	public void action(Players ps, Dice d) {
+	public void action(Players ps, int result) {
 		Player owner = ps.ownerOf(this);
 		Player current = ps.current();
 		if (owner == null) {
@@ -44,7 +43,7 @@ public abstract class Property extends Slot {
 		}
 		else
 			if (!owner.equals(current)) {
-				double amt = calculateAmount(owner, d);
+				double amt = calculateAmount(owner, result);
 				current.withdrawMoney(amt);
 				owner.addMoney(amt);
 				notice(new PlayerPaidForProperty(current, owner, this));

@@ -1,6 +1,5 @@
 package monopoly.slots;
 
-import monopoly.Dice;
 import monopoly.Player;
 /**
  * 
@@ -28,7 +27,7 @@ public class Terrain extends Property {
 	 * @param d the dice 
 	 * @return the amount to be paid
 	 */
-	protected double calculateAmount(Player owner, Dice d) {
+	protected double calculateAmount(Player owner, int result) {
 		int mult = 1;
 		if (getGroup() != null && owner.owns(getGroup()))
 			mult = GROUP_MULTIPLIER;

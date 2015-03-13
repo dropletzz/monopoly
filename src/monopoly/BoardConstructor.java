@@ -23,12 +23,12 @@ public final class BoardConstructor {
 
 		b.addSlot(new EmptySlot("VIA"), 0);
 		b.addSlot(new Terrain("Vicolo Corto", 60), 1);
-		b.addSlot(new EmptySlot("PROBABILITA'"), 2);
+		b.addSlot(new Chance(), 2);
 		b.addSlot(new Terrain("Vicolo Stretto", 60), 3);
 		b.addSlot(new Tax("Tassa patrimoniale", 250), 4);
 		b.addSlot(new Station("Stazione sud", 20), 5);
 		b.addSlot(new Terrain("Bastioni Gran Sasso", 100), 6);
-		b.addSlot(new EmptySlot("IMPREVISTI"), 7);
+		b.addSlot(new Accident(), 7);
 		b.addSlot(new Terrain("Viale Monterosa", 100), 8);
 		b.addSlot(new Terrain("Viale Vesuvio", 120), 9);
 		b.addSlot(new Prison("Prigione/Transito"), 10);
@@ -39,13 +39,13 @@ public final class BoardConstructor {
 		b.addSlot(new Terrain("Piazza Universita'", 160), 14);
 		b.addSlot(new Station("Stazione ovest", 20), 15);
 		b.addSlot(new Terrain("Via Verdi", 180), 16);
-		b.addSlot(new EmptySlot("PROBABILITA'"), 17);
+		b.addSlot(new Chance(), 17);
 		b.addSlot(new Terrain("Corso Raffaello", 180), 18);
 		b.addSlot(new Terrain("Piazza Dante'", 200), 19);
 		b.addSlot(new EmptySlot("Posteggio gratuito'"), 20);
 		
 		b.addSlot(new Terrain("Via Marco Polo", 220), 21);
-		b.addSlot(new EmptySlot("IMPREVISTI"), 22);
+		b.addSlot(new Accident(), 22);
 		b.addSlot(new Terrain("Corso Magellano", 220), 23);
 		b.addSlot(new Terrain("Largo Colombo", 240), 24);
 		b.addSlot(new Station("Stazione nord", 20), 25);
@@ -57,10 +57,10 @@ public final class BoardConstructor {
 		
 		b.addSlot(new Terrain("Via Roma", 300), 31);
 		b.addSlot(new Terrain("Corso Impero", 300), 32);
-		b.addSlot(new EmptySlot("PROBABILITA'"), 33);
+		b.addSlot(new Chance(), 33);
 		b.addSlot(new Terrain("Largo Augusto", 320), 34);
 		b.addSlot(new Station("Stazione est", 20), 35);
-		b.addSlot(new EmptySlot("IMPREVISTI"), 36);
+		b.addSlot(new Accident(), 36);
 		b.addSlot(new Terrain("Viale dei Giardini", 350), 37);
 		b.addSlot(new Tax("Tassa di lusso", 10), 38);
 		b.addSlot(new Terrain("Parco della Vittoria", 400), 39);

@@ -34,7 +34,7 @@ public abstract class Slot extends EventGenerator {
 	 * 
 	 * @param p Players must make an action
 	 */
-	public abstract void action(Players p, Dice d);
+	public abstract void action(Players ps, int result);
 	
 	
 	public boolean equals(Object o) {

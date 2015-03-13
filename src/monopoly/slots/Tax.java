@@ -1,6 +1,5 @@
 package monopoly.slots;
 
-import monopoly.Dice;
 import monopoly.Players;
 /**
  * 
@@ -26,8 +25,8 @@ public class Tax extends Slot {
 	 * @param amount Players who have to paid
 	 */
 	@Override
-	public void action(Players p, Dice d) {
-		p.current().withdrawMoney(amount);
+	public void action(Players ps, int result) {
+		ps.current().withdrawMoney(amount);
 	}
 
 }

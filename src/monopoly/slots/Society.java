@@ -28,13 +28,13 @@ public class Society extends Property {
 	 * @return the amount to be paid
 	 */
 	@Override
-	protected double calculateAmount(Player owner, Dice d) {
+	protected double calculateAmount(Player owner, int result) {
 		int mult;
 		if (getGroup() != null && owner.owns(getGroup()))
 			mult = GROUP_MULTIPLIER;
 		else
 			mult = MULTIPLIER;
 			
-		return d.result() * mult;
+		return result * mult;
 	}
 }

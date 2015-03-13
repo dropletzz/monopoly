@@ -1,6 +1,7 @@
 package monopoly.cards;
 
 import monopoly.Board;
+import monopoly.Player;
 import monopoly.Players;
 
 public class Move implements Card {
@@ -13,9 +14,12 @@ public class Move implements Card {
 
 	@Override
 	public void effect(Players ps) {
+		Player p = ps.current();
 		if (distance >= 0)
-			ps.current().move(distance);
+			p.move(distance);
 		else
-			ps.current().moveBack(-distance);
+			p.moveBack(-distance);
+		
+		p.getSlot().action(ps, distance);
 	}
 }

@@ -1,6 +1,5 @@
 package monopoly.slots;
 
-import monopoly.Dice;
 import monopoly.Player;
 /**
  * 
@@ -28,7 +27,7 @@ public class Station extends Property {
 	 * @return the amount to be paid
 	 */
 	@Override
-	protected double calculateAmount(Player owner, Dice d) {
+	protected double calculateAmount(Player owner, int result) {
 		return PERCENTAGE * getValue();
 	}
 }

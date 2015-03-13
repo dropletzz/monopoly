@@ -57,8 +57,8 @@ public final class Board extends EventGenerator {
 	 * 
 	 * @param p Players involved in the action
 	 */
-	private void action(Players p, Dice d) {
-		slots[p.current().getPosition()].action(p, d);
+	private void action(Players p, int result) {
+		slots[p.current().getPosition()].action(p, result);
 	}
 
 	/**
@@ -76,7 +76,7 @@ public final class Board extends EventGenerator {
 			ps.next();
 		} else {
 			p.move(d.result());
-			action(ps, d);
+			action(ps, d.result());
 
 			if (p.broke()) {
 				notice(new PlayerBroke(p));

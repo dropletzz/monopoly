@@ -1,8 +1,10 @@
 package monopoly;
 
 import java.util.Vector;
+
 import monopoly.slots.Group;
 import monopoly.slots.Property;
+import monopoly.slots.Slot;
 /**
  * 
  * 
@@ -192,5 +194,9 @@ public final class Player {
 	 */
 	public boolean canBuy(Property p) {
 		return p.getValue() < capital.getValue();
+	}
+	
+	public Slot getSlot() {
+		return board.getSlot(position);
 	}
 }

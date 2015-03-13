@@ -22,6 +22,6 @@ public final class Prison extends Slot {
 	 * @param ps Players must go to prison
 	 */
 	@Override
-	public void action(Players ps, Dice d) {}
+	public void action(Players ps, int result) {}
 
 }
