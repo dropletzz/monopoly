@@ -18,22 +18,24 @@ public final class Player {
 	 * initial capital of the players
 	 */
 	public static final double STARTING_CAPITAL = 5000;
-	
+	public static final double START_BONUS = 500;
 	
 	private String name;
 	private int position;
 	private Capital capital;
 	private Vector<Property> properties;
+	private Board board;
 	
 	/**
 	 * Constructor of Player class
 	 * @param name the name of the player
 	 */
-	public Player(String name) {
+	public Player(String name, Board board) {
 		this.name = name;
 		this.position = DEFAULT_POSITION;
 		this.capital = new Capital(STARTING_CAPITAL);
 		this.properties = new Vector<Property>();
+		this.board = board;
 	}
 	
 	/**
@@ -50,6 +52,23 @@ public final class Player {
 	 */
 	public void setPosition(int p) {
 		position = p;
+	}
+	
+	public void move(int result) {
+		// precond result positivo
+		int sum = position + result;
+		if (sum >= board.size()) addMoney(START_BONUS);
+		position = sum % board.size();
+	}
+	
+	public void moveBack(int amount) {
+		// precond amount positivo
+		position = position - amount;
+	}
+	
+	public void moveTo(int dest) {
+		if (dest < position) addMoney(START_BONUS);
+		position = dest;
 	}
 	
 	/**

@@ -25,9 +25,9 @@ public final class Game implements Observer {
 	/**
 	 * start game
 	 */
-	public void start() {
+	public void play() {
 		Player current;
-		players = TextGUI.getPlayers().shuffle();
+		players = TextGUI.getPlayers(board).shuffle();
 		
 		while (board.getTurnsPlayed() < MAX_TURNS && !players.single()) {
 			current = players.current();

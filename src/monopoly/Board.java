@@ -18,9 +18,7 @@ public final class Board extends EventGenerator {
 	public static final String POSITION_MESSAGE = "Sei sulla casella %d";
 
 	final private Slot slots [];
-	final private int dimension;
 	final private int prison;
-	final private double startBonus;
 	private byte consecutiveTurns;
 	private int turnsPlayed;
 	
@@ -31,10 +29,8 @@ public final class Board extends EventGenerator {
 	 * @param startBonus bonus if start slot is active 
 	 */
 	public Board(int dimension, int prison, double startBonus) {
-		this.dimension = dimension;
 		this.slots = new Slot [dimension];
 		this.prison = prison;
-		this.startBonus = startBonus;
 		this.consecutiveTurns = 0;
 		this.turnsPlayed = 0;
 	}
@@ -79,13 +75,7 @@ public final class Board extends EventGenerator {
 			consecutiveTurns = 0;
 			ps.next();
 		} else {
-			if (passedStart(p, d.result())) {
-				p.addMoney(startBonus);
-				notice(new PlayerByStart(p));
-			}
-			
-			p.setPosition((p.getPosition() + d.result()) % dimension);
-			
+			p.move(d.result());
 			action(ps, d);
 
 			if (p.broke()) {
@@ -100,16 +90,6 @@ public final class Board extends EventGenerator {
 			}
 			
 		}
-	}
-	
-	/**
-	 * 
-	 * @param p the player who has moved
-	 * @param result the result of the roll dices
-	 * @return true the player is passed by Start
-	 */
-	private boolean passedStart(Player p, int result) {
-		return (p.getPosition() + result) >= dimension;
 	}
         
 	/**
@@ -157,5 +137,9 @@ public final class Board extends EventGenerator {
 			return (Property) slots[index];
 		return null;
 			
+	}
+	
+	public int size() {
+		return slots.length;
 	}
 }

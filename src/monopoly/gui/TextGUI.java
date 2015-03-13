@@ -10,13 +10,13 @@ import utils.InputDati;
  */
 public final class TextGUI {
 
-	public static Players getPlayers() {
+	public static Players getPlayers(Board b) {
 		int num = InputDati.readInteger("Quanti giocatori? ", Players.MIN_PLAYERS, Players.MAX_PLAYERS);
 		Players players = new Players(num);
 		for (int i = 0; i < num; i++) {
 			Player p;
 			do {
-				p = getPlayer(i+1);
+				p = getPlayer(i+1, b);
 				if (players.contains(p)) {
 					System.out.println("Nome gia' esistente! Reinseriscilo");
 				}
@@ -27,9 +27,9 @@ public final class TextGUI {
 		return players;
 	}
 	
-	public static Player getPlayer(int n) {
+	public static Player getPlayer(int n, Board b) {
 		String name = InputDati.readStringNoEmpty(String.format("Inserisci il nome del giocatore %d: ", n));
-		return new Player(name);
+		return new Player(name, b);
 	}
 	
 	public static Dice getDice() {
