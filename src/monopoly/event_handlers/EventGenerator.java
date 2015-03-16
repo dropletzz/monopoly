@@ -1,37 +1,27 @@
 package monopoly.event_handlers;
-import java.util.Vector;
+
+import monopoly.Game;
+
 /**
  * 
  * 
  * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
+ * @param <T>
  *
  */
 public abstract class EventGenerator {
 
-	private Vector<Observer> observers;
-	
-	/**
-	 * Constructor of MessageSender class
-	 */
-	public EventGenerator() {
-		observers = new Vector<Observer>();
-	}
-	
-	/**
-	 * 
-	 * @param message message to be notified
-	 */
-	public void notice(Event e) {
-		for (Observer o:observers) {
-			o.handleEvent(e);
-		}
-	}
+	private Game observer;
 	
 	/**
 	 * 
 	 * @param o add to the list of observers
 	 */
-	public void addObserver(Observer o) {
-		observers.add(o);
+	public void setObserver(Game o) {
+		observer = o;
+	}
+	
+	protected Game getObserver() {
+		return observer;
 	}
 }

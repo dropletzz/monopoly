@@ -26,6 +26,7 @@ public final class Player {
 	private Capital capital;
 	private Vector<Property> properties;
 	private Board board;
+	private boolean imprisoned;
 	
 	/**
 	 * Constructor of Player class
@@ -37,6 +38,7 @@ public final class Player {
 		this.capital = new Capital(STARTING_CAPITAL);
 		this.properties = new Vector<Property>();
 		this.board = board;
+		this.imprisoned = false;
 	}
 	
 	/**
@@ -197,5 +199,17 @@ public final class Player {
 	
 	public Slot getSlot() {
 		return board.getSlot(position);
+	}
+	
+	public void imprison() {
+		imprisoned = true;
+	}
+	
+	public void setFree() {
+		imprisoned = false;
+	}
+	
+	public boolean imprisoned() {
+		return imprisoned;
 	}
 }

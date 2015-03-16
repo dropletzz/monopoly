@@ -38,7 +38,7 @@ public abstract class Property extends Slot {
 			if (current.canBuy(this)) {
 				current.withdrawMoney(cost);
 				current.addProperty(this);
-				notice(new PlayerBoughtProperty(current, this));
+				getObserver().handleEvent(new PlayerBoughtProperty(current, this));
 			}
 		}
 		else
@@ -46,7 +46,7 @@ public abstract class Property extends Slot {
 				double amt = calculateAmount(owner, result);
 				current.withdrawMoney(amt);
 				owner.addMoney(amt);
-				notice(new PlayerPaidForProperty(current, owner, this));
+				getObserver().handleEvent(new PlayerPaidForProperty(current, owner, this));
 			}
 	}
 	

@@ -1,10 +1,12 @@
 package monopoly;
 
 import monopoly.event_handlers.EventGenerator;
-import monopoly.event_handlers.Observer;
+import monopoly.events.OutOfPrison;
 import monopoly.events.PlayerBroke;
 import monopoly.events.PlayerToPrison;
+import monopoly.events.PrintPlayerStatus;
 import monopoly.slots.*;
+
 /**
  * 
  * 
@@ -14,7 +16,7 @@ import monopoly.slots.*;
 public final class Board extends EventGenerator {
 	
 	private static final int TURNS_TO_PRISON = 2;
-	public static final String POSITION_MESSAGE = "Sei sulla casella %d";
+	private static final double PRISON_TAX = 50;
 
 	final private Slot slots [];
 	final private int prison;
@@ -58,8 +60,8 @@ public final class Board extends EventGenerator {
 	 * 
 	 * @param p Players involved in the action
 	 */
-	private void action(Players p, int result) {
-		slots[p.current().getPosition()].action(p, result);
+	private void action(Players ps, int result) {
+		slots[ps.current().getPosition()].action(ps, result);
 	}
 
 	/**
@@ -70,26 +72,46 @@ public final class Board extends EventGenerator {
 	public void playTurn(Players ps, Dice d) {
 		Player p = ps.current();
 		
-		if ((consecutiveTurns == TURNS_TO_PRISON) && d.same()) {
-			notice(new PlayerToPrison(p));
-			moveToPrison(p);
-			consecutiveTurns = 0;
-			ps.next();
-		} else {
-			p.move(d.result());
-			action(ps, d.result());
-
-			if (p.broke()) {
-				notice(new PlayerBroke(p));
-				ps.removeCurrent();
+		if (prisonCheck(p)) {
+			getObserver().handleEvent(new PlayerBroke(ps.current()));
+			ps.removeCurrent();
+		}
+		else
+			if ((consecutiveTurns == TURNS_TO_PRISON) && d.same()) {
+				getObserver().handleEvent(new PlayerToPrison(p));
+				p.imprison();
+				moveToPrison(p);
+				consecutiveTurns = 0;
+				ps.next();
 			} else {
-				if (!d.same()) {	
-					ps.next();
-					consecutiveTurns = 0;
-					turnsPlayed++;
-				} else consecutiveTurns++;
+				p.move(d.result());
+				action(ps, d.result());
+	
+				finalCheck(ps, d);
 			}
-			
+	}
+	
+	private boolean prisonCheck(Player p) {
+		if (p.imprisoned()) {
+			p.withdrawMoney(PRISON_TAX);
+			p.setFree();
+			getObserver().handleEvent(new OutOfPrison(p, PRISON_TAX));
+		}
+		return p.broke();
+	}
+	
+	private void finalCheck(Players ps, Dice d) {
+		if (ps.current().broke()) {
+			getObserver().handleEvent(new PlayerBroke(ps.current()));
+			ps.removeCurrent();
+		} else {
+			getObserver().handleEvent(new PrintPlayerStatus(ps.current()));
+			if (!d.same()) {	
+				
+				ps.next();
+				consecutiveTurns = 0;
+				turnsPlayed++;
+			} else consecutiveTurns++;
 		}
 	}
         
@@ -121,10 +143,10 @@ public final class Board extends EventGenerator {
 	 *
 	 * @param o the observer to add
 	 */
-	public void addObserver(Observer o) {
-		super.addObserver(o);
+	public void setObserver(Game o) {
+		super.setObserver(o);
 		for (Slot s:slots) {
-			s.addObserver(o);
+			s.setObserver(o);
 		}
 	}
 	

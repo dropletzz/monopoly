@@ -1,14 +1,17 @@
 package monopoly;
+import monopoly.cards.DecksConstructor;
 import monopoly.event_handlers.Event;
-import monopoly.event_handlers.Observer;
+import monopoly.events.PrintPlayerStatus;
 import monopoly.gui.TextGUI;
+import monopoly.slots.Accident;
+import monopoly.slots.Chance;
 /**
  * 
  * 
  * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
-public final class Game implements Observer {
+public final class Game {
 	private static final int MAX_TURNS = 20;
 	
 	private Players players;
@@ -19,7 +22,9 @@ public final class Game implements Observer {
 	 */
 	public Game() {
 		board = BoardConstructor.createBoard();
-		board.addObserver(this);
+		board.setObserver(this);
+		Chance.setDeck(DecksConstructor.chancesDeck(board.getPrisonPosition()));
+		Accident.setDeck(DecksConstructor.accidentsDeck(board.getPrisonPosition()));
 	}
 	
 	/**
@@ -35,8 +40,6 @@ public final class Game implements Observer {
 			
 			board.playTurn(players, TextGUI.getDice());
 			
-			if (!current.broke())
-				TextGUI.printPropertiesPlayer(current);
 			TextGUI.separator();
 		}
 		
@@ -50,8 +53,11 @@ public final class Game implements Observer {
 	 * respond to a generic event by printing the event's message
 	 * @param message 
 	 */
-	@Override
 	public void handleEvent(Event e) {
 		TextGUI.alert(e.getMessage());
+	}
+	
+	public void handleEvent(PrintPlayerStatus e) {
+		TextGUI.printPropertiesPlayer(e.getPlayer());
 	}
 }
