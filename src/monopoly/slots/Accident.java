@@ -1,8 +1,10 @@
 package monopoly.slots;
 
 import monopoly.Players;
+import monopoly.cards.Card;
 import monopoly.cards.Deck;
 import monopoly.cards.DecksConstructor;
+import monopoly.events.CardEvent;
 
 public class Accident extends Slot {
 
@@ -14,6 +16,8 @@ public class Accident extends Slot {
 
 	@Override
 	public void action(Players ps, int result) {
-		ACCIDENT_CARDS.nextCard().effect(ps);
+		Card card = ACCIDENT_CARDS.nextCard();
+		notice(new CardEvent(card));
+		card.effect(ps, result);	
 	}
 }

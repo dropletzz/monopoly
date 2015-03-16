@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/monopoly/Capital.java=UTF-8
+encoding//src/monopoly/cards/DecksConstructor.java=UTF-8
 encoding//src/monopoly/gui/TextGUI.java=UTF-8
 encoding//src/monopoly/slots/ToPrison.java=UTF-8
 encoding//src/utils/InputDati.java=UTF-8

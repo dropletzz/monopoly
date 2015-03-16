@@ -20,6 +20,7 @@ public final class Board extends EventGenerator {
 	final private int prison;
 	private byte consecutiveTurns;
 	private int turnsPlayed;
+	private double startBonus;
 	
 	/**
 	 * Constructor of Board class
@@ -32,6 +33,7 @@ public final class Board extends EventGenerator {
 		this.prison = prison;
 		this.consecutiveTurns = 0;
 		this.turnsPlayed = 0;
+		this.startBonus = startBonus;
 	}
 	
 	/**
@@ -140,5 +142,9 @@ public final class Board extends EventGenerator {
 	
 	public int size() {
 		return slots.length;
+	}
+	
+	public double getStartBonus() {
+		return startBonus;
 	}
 }

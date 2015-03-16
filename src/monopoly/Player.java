@@ -20,7 +20,6 @@ public final class Player {
 	 * initial capital of the players
 	 */
 	public static final double STARTING_CAPITAL = 5000;
-	public static final double START_BONUS = 500;
 	
 	private String name;
 	private int position;
@@ -59,7 +58,7 @@ public final class Player {
 	public void move(int result) {
 		// precond result positivo
 		int sum = position + result;
-		if (sum >= board.size()) addMoney(START_BONUS);
+		if (sum >= board.size()) addMoney(board.getStartBonus());
 		position = sum % board.size();
 	}
 	
@@ -69,7 +68,7 @@ public final class Player {
 	}
 	
 	public void moveTo(int dest) {
-		if (dest < position) addMoney(START_BONUS);
+		if (dest < position) addMoney(board.getStartBonus());
 		position = dest;
 	}
 	

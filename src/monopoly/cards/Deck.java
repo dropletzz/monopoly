@@ -22,10 +22,14 @@ public class Deck {
 			Vector<Card> tmp = cards;
 			cards = usedCards;
 			usedCards = tmp;
-			Collections.shuffle(cards);
+			shuffle();
 		}
 
 		usedCards.add(cards.elementAt(0));
 		return cards.remove(0);
+	}
+	
+	public void shuffle() {
+		Collections.shuffle(cards);
 	}
 }
