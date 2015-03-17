@@ -1,7 +1,6 @@
 package monopoly.events;
 
 import monopoly.Player;
-import monopoly.event_handlers.Event;
 /**
  * 
  * 
@@ -25,6 +24,6 @@ public class PlayerBroke implements Event {
 	 * @return the message of the event to broke
 	 */
 	public String getMessage() {
-		return String.format("%s ESCE DALLA PARTITA!", player.getName());
+		return String.format("%s ESCE DALLA PARTITA!", player.getName().toUpperCase());
 	}
 }

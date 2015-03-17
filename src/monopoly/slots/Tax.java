@@ -1,6 +1,7 @@
 package monopoly.slots;
 
 import monopoly.Players;
+import monopoly.events.PlayerPaidTax;
 /**
  * 
  * 
@@ -27,6 +28,10 @@ public class Tax extends Slot {
 	@Override
 	public void action(Players ps, int result) {
 		ps.current().withdrawMoney(amount);
+		getObserver().handleEvent(new PlayerPaidTax(this));
 	}
 
+	public double getAmount() {
+		return amount;
+	}
 }

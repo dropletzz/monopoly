@@ -1,7 +1,7 @@
 package monopoly.slots;
 
+import monopoly.EventGenerator;
 import monopoly.Players;
-import monopoly.event_handlers.EventGenerator;
 /**
  * 
  * 

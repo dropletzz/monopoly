@@ -1,7 +1,6 @@
 package monopoly.events;
 
 import monopoly.Player;
-import monopoly.event_handlers.Event;
 
 public class PrintPlayerStatus implements Event {
 

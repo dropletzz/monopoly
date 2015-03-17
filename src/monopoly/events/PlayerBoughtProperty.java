@@ -1,25 +1,17 @@
 package monopoly.events;
 
-import monopoly.Player;
-import monopoly.event_handlers.Event;
 import monopoly.slots.Property;
 
 public class PlayerBoughtProperty implements Event {
 	
-	private Player player;
 	private Property property;
 	
-	public PlayerBoughtProperty(Player player, Property property) {
-		this.player = player;
+	public PlayerBoughtProperty(Property property) {
 		this.property = property;
 	}
 
 	public String getMessage() {
-		return String.format("%s ha comprato %s", player.getName(), property.getName());
-	}
-
-	public Player getPlayer() {
-		return player;
+		return String.format("hai comprato %s pagandola %s", property.getName(), property.getCost().getFormattedValue());
 	}
 
 	public Property getProperty() {

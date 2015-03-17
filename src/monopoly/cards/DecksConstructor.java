@@ -1,6 +1,7 @@
 package monopoly.cards;
 
 public class DecksConstructor {
+	// TODO sostituire tutti i prezzi con Capital.format(...)
 	
 	public static Deck chancesDeck(int prisonPosition) {
 		Deck d = new Deck();

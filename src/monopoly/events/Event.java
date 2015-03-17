@@ -1,4 +1,4 @@
-package monopoly.event_handlers;
+package monopoly.events;
 
 public interface Event {
 	String getMessage();

@@ -1,28 +1,24 @@
 package monopoly.events;
 
+import monopoly.Capital;
 import monopoly.Player;
-import monopoly.event_handlers.Event;
 import monopoly.slots.Property;
 
 public class PlayerPaidForProperty implements Event {
 	
-	private Player player;
 	private Player owner;
 	private Property property;
+	private double amount;
 	
-	public PlayerPaidForProperty(Player player, Player owner, Property property) {
-		this.player = player;
+	public PlayerPaidForProperty(Player owner, Property property, double amount) {
+		this.amount = amount;
 		this.owner = owner;
 		this.property = property;
 	}
 
 	public String getMessage() {
-		return String.format("%s e' finito su %s e ha pagato %s a %s",
-				player.getName(), property.getName(), property.getCost().getFormattedValue(), owner.getName());
-	}
-	
-	public Player getPlayer() {
-		return player;
+		return String.format("sei finito su %s e hai pagato %s a %s",
+				property.getName(), Capital.format(amount), owner.getName());
 	}
 
 	public Player getOwner() {

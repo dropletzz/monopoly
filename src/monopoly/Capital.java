@@ -34,6 +34,10 @@ public class Capital {
 		return String.format("%.2f %s", value * coefficient, symbol);
 	}
 	
+	public static String format(double value) {
+		return String.format("%.2f %s", value * coefficient, symbol);
+	}
+	
 	/**
 	 * 
 	 * @return current capital

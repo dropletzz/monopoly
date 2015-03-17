@@ -1,7 +1,6 @@
 package monopoly;
 
-import monopoly.event_handlers.EventGenerator;
-import monopoly.events.OutOfPrison;
+import monopoly.events.PlayerOutOfPrison;
 import monopoly.events.PlayerBroke;
 import monopoly.events.PlayerToPrison;
 import monopoly.events.PrintPlayerStatus;
@@ -78,7 +77,7 @@ public final class Board extends EventGenerator {
 		}
 		else
 			if ((consecutiveTurns == TURNS_TO_PRISON) && d.same()) {
-				getObserver().handleEvent(new PlayerToPrison(p));
+				getObserver().handleEvent(new PlayerToPrison());
 				p.imprison();
 				moveToPrison(p);
 				consecutiveTurns = 0;
@@ -95,7 +94,7 @@ public final class Board extends EventGenerator {
 		if (p.imprisoned()) {
 			p.withdrawMoney(PRISON_TAX);
 			p.setFree();
-			getObserver().handleEvent(new OutOfPrison(p, PRISON_TAX));
+			getObserver().handleEvent(new PlayerOutOfPrison(PRISON_TAX));
 		}
 		return p.broke();
 	}
@@ -107,11 +106,11 @@ public final class Board extends EventGenerator {
 		} else {
 			getObserver().handleEvent(new PrintPlayerStatus(ps.current()));
 			if (!d.same()) {	
-				
 				ps.next();
 				consecutiveTurns = 0;
 				turnsPlayed++;
-			} else consecutiveTurns++;
+			} else
+				consecutiveTurns++;
 		}
 	}
         

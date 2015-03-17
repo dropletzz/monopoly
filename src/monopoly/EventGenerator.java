@@ -1,6 +1,5 @@
-package monopoly.event_handlers;
+package monopoly;
 
-import monopoly.Game;
 
 /**
  * 

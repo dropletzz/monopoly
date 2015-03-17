@@ -1,7 +1,6 @@
 package monopoly.events;
 
 import monopoly.cards.Card;
-import monopoly.event_handlers.Event;
 
 public class CardEvent implements Event {
 	

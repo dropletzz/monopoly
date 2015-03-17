@@ -1,7 +1,5 @@
 package monopoly.events;
 
-import monopoly.Player;
-import monopoly.event_handlers.Event;
 /**
  * 
  * 
@@ -10,21 +8,17 @@ import monopoly.event_handlers.Event;
  */
 public class PlayerByStart implements Event {
 	
-	private Player player;
-	
 	/**
 	 * Constructor of PlayerByStart class
 	 * @param player
 	 */
-	public PlayerByStart(Player player) {
-		this.player = player;
-	}
+	public PlayerByStart() {}
 	
 	/**
 	 * 
 	 * @return the message of the event to pass by start
 	 */
 	public String getMessage() {
-		return String.format("%s e' passato dalla casella START: riceve 500.00 euro!", player.getName());
+		return String.format("sei passato dalla casella START: ricevi 500.00 euro!");
 	}
 }
