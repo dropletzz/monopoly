@@ -2,9 +2,18 @@ package monopoly.gui;
 
 import monopoly.*;
 import utils.InputDati;
-
+/**
+ * 
+ * 
+ * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
+ *
+ */
 public final class TextGUI {
 
+	/**
+	 * 
+	 * @return the Players just created
+	 */
 	public static Players getPlayers() {
 		int num = InputDati.readInteger("Quanti giocatori? ", Players.MIN_PLAYERS, Players.MAX_PLAYERS);
 		Players players = new Players(num);
@@ -22,11 +31,20 @@ public final class TextGUI {
 		return players;
 	}
 	
+	/**
+	 * 
+	 * @param n the number of the player
+	 * @return the player n
+	 */
 	public static Player getPlayer(int n) {
 		String name = InputDati.readStringNoEmpty(String.format("Inserisci il nome del giocatore %d: ", n));
 		return new Player(name);
 	}
 	
+	/**
+	 * 
+	 * @return the dice just created
+	 */
 	public static Dice getDice() {
 		int a = InputDati.readInteger("Risultato primo lancio: ", Dice.MIN_RESULT, Dice.MAX_RESULT);
 		int b = InputDati.readInteger("Risultato secondo lancio: ", Dice.MIN_RESULT, Dice.MAX_RESULT);
@@ -34,25 +52,35 @@ public final class TextGUI {
 		return new Dice(a,b);
 	}
 	
+	/**
+	 * 
+	 * @param player print that the player goes to the prison
+	 */
 	public static void prisonMessage(Player player) {
 		System.out.println(String.format("%s va in prigione!", player.getName()));
 	}
 	
+	/**
+	 * 
+	 * @param p print that il turn of player p
+	 */
 	public static void turnStartMessage(Player p) {
 		System.out.println(String.format("%s tocca a te!", p.getName()));
 	}
 	
+	/**
+	 * 
+	 * @param p print the position of player p
+	 */
 	public static void printPosition(Player p) {
 		System.out.println(String.format("Sei sulla casella %d", p.getPosition()));
 	}
 	
+	/**
+	 * 
+	 * print the separator each turn
+	 */
 	public static void separator() {
-		System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+		System.out.println("$-------------------------------------------$");
 	}
-	
-	/*public static void printBoard(Board board) {
-		for (int i = 0; i < board.DIMENSION; i ++) {
-			System.out.println(String.format("Slot %d: ", board.getSlot(i)));
-		}
-	}*/
 }
