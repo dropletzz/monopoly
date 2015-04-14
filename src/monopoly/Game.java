@@ -51,12 +51,16 @@ public final class Game {
 
 	/**
 	 * respond to a generic event by printing the event's message
-	 * @param message 
+	 * @param e the event 
 	 */
 	public void handleEvent(Event e) {
 		TextGUI.alert(e.getMessage());
 	}
 	
+	/**
+	 * 
+	 * @param e event PrintPlayerStatus to be printed
+	 */
 	public void handleEvent(PrintPlayerStatus e) {
 		TextGUI.printPropertiesPlayer(e.getPlayer());
 	}

@@ -10,7 +10,6 @@ public class PlayerToPrison implements Event {
 	
 	/**
 	 * Constructor of PlayerToPrison class
-	 * @param player the player who call the event
 	 */
 	public PlayerToPrison() {}
 	

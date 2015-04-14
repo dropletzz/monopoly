@@ -1,2 +1,6 @@
 monopoly
+monopoly.cards
+monopoly.events
 monopoly.gui
+monopoly.slots
+utils

@@ -30,6 +30,7 @@ public final class Board extends EventGenerator {
 	 * @param startBonus bonus if start slot is active 
 	 */
 	public Board(int dimension, int prison, double startBonus) {
+		assert dimension > 0 : "the board hasn't slots!"; 
 		this.slots = new Slot [dimension];
 		this.prison = prison;
 		this.consecutiveTurns = 0;
@@ -43,6 +44,7 @@ public final class Board extends EventGenerator {
 	 * @return the slot at the position of the index
 	 */
 	public Slot getSlot (int index) {
+		assert index >= 0 : "index can't be negative";
 		return slots[index];
 	}
 	
@@ -52,6 +54,7 @@ public final class Board extends EventGenerator {
 	 * @param position the position of the slot
 	 */
 	public void addSlot(Slot s, int position) {
+		assert position >= 0 : "position can't be negative";
 		slots[position] = s;
 	}
 	
@@ -90,6 +93,11 @@ public final class Board extends EventGenerator {
 			}
 	}
 	
+	/**
+	 * 
+	 * @param p the player to be checked
+	 * @return true if the player broke to exit to prison
+	 */
 	private boolean prisonCheck(Player p) {
 		if (p.imprisoned()) {
 			p.withdrawMoney(PRISON_TAX);
@@ -99,6 +107,11 @@ public final class Board extends EventGenerator {
 		return p.broke();
 	}
 	
+	/**
+	 * 
+	 * @param ps players to be checked
+	 * @param d the dice
+	 */
 	private void finalCheck(Players ps, Dice d) {
 		if (ps.current().broke()) {
 			getObserver().handleEvent(new PlayerBroke(ps.current()));
@@ -155,16 +168,24 @@ public final class Board extends EventGenerator {
 	 * @return the property at the passed index
 	 */
 	public Property getProperty(int index) {
+		assert index >= 0 : "index can't be negative";
 		if (slots[index] instanceof Property)
 			return (Property) slots[index];
 		return null;
-			
 	}
 	
+	/**
+	 * 
+	 * @return the number of slots
+	 */
 	public int size() {
 		return slots.length;
 	}
 	
+	/**
+	 * 
+	 * @return the start bonus
+	 */
 	public double getStartBonus() {
 		return startBonus;
 	}

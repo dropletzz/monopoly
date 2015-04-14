@@ -23,7 +23,7 @@ public class Society extends Property {
 	/**
 	 * 
 	 * @param owner the owner of the slot
-	 * @param d the dice 
+	 * @param result of the dice roll
 	 * @return the amount to be paid
 	 */
 	@Override

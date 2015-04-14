@@ -26,6 +26,8 @@ public final class Dice {
 	public Dice(int a, int b) {
 		this.a = a;
 		this.b = b;
+		assert a + b > 2 * MIN_RESULT : "error in dice roll";
+		assert a + b < 2 * MAX_RESULT : "error in dice roll";
 	}
 	
 	/**

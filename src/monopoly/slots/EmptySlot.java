@@ -27,6 +27,7 @@ public final class EmptySlot extends Slot {
 	/**
 	 * 
 	 * @param p Players must make an action
+	 * @param result the dice roll
 	 */
 	@Override
 	public void action(Players p, int result) {}

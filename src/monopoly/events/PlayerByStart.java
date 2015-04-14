@@ -10,7 +10,6 @@ public class PlayerByStart implements Event {
 	
 	/**
 	 * Constructor of PlayerByStart class
-	 * @param player
 	 */
 	public PlayerByStart() {}
 	

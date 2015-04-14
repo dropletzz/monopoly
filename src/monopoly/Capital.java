@@ -6,8 +6,11 @@ package monopoly;
  *
  */
 public class Capital {
-	// invariante di classe -> value deve essere sempre positivo
-	private double value;
+	
+	private double /*@spec_public@*/ value;
+	
+	/*@invariant value >= 0; @*/
+	
 	/**
 	 * default currency
 	 */
@@ -22,8 +25,8 @@ public class Capital {
 	 * @param value initial capital
 	 */
 	public Capital(double value) {
-		this.value = value;
 		if (value < 0) value = 0;
+		this.value = value;
 	}
 	
 	/**

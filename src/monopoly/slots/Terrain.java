@@ -13,7 +13,7 @@ public class Terrain extends Property {
 	private static final int GROUP_MULTIPLIER =  4;
 
 	/**
-	 * Constructor of Station class
+	 * Constructor of Terrain class
 	 * @param name the name of the slot
 	 * @param value the value of the slot
 	 */
@@ -24,7 +24,7 @@ public class Terrain extends Property {
 	/**
 	 * 
 	 * @param owner the owner of the slot
-	 * @param d the dice 
+	 * @param result of the dice roll 
 	 * @return the amount to be paid
 	 */
 	protected double calculateAmount(Player owner, int result) {

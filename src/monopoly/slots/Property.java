@@ -25,10 +25,18 @@ public abstract class Property extends Slot {
 		this.cost =  new Capital(value);
 	}
 	
+	/**
+	 * calculate the amount to be paid
+	 * @param owner the owner of the slot
+	 * @param result of the dice roll 
+	 * @return the amount to be paid
+	 */
 	protected abstract double calculateAmount(Player owner, int result);
 	
 	/**
 	 * the action of the slot
+	 * @param ps the owners players 
+	 * @param result the result of the dice roll
 	 */
 	@Override
 	public void action(Players ps, int result) {

@@ -29,6 +29,8 @@ public final class Players {
 	 * @param n number of players
 	 */
 	public Players(int n) {
+		assert n > MIN_PLAYERS : n + " players aren't allowed";
+		assert n < MAX_PLAYERS : n + " players aren't allowed";
 		players = new ArrayBlockingQueue<Player>(n);
 	}
 	
@@ -37,6 +39,7 @@ public final class Players {
 	 * @return the first player in the queue
 	 */
 	public Player current() {
+		assert players.peek() != null : "the queue is empty";
 		return players.peek();
 	}
 	
@@ -45,6 +48,7 @@ public final class Players {
 	 * @return the array of the players queue unless the first
 	 */
 	public Player [] others() {
+		assert players.size() > 1 : "there aren't players";
 		Player tmpPlayers [] = new Player [players.size() - 1];
 		int i = 0;
 		for (Player p:players) {
@@ -52,6 +56,7 @@ public final class Players {
 				tmpPlayers[i-1] = p;
 			i++;
 		}
+		
 		return tmpPlayers;
 	}
 	
@@ -86,6 +91,7 @@ public final class Players {
 	 */
 	public void removeCurrent() {
 		players.poll();
+		assert players.size() > 0 : "there aren't players";
 	}
 	
 	/**

@@ -1,11 +1,8 @@
 package monopoly;
-
-
 /**
  * 
  * 
  * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
- * @param <T>
  *
  */
 public abstract class EventGenerator {
@@ -20,6 +17,10 @@ public abstract class EventGenerator {
 		observer = o;
 	}
 	
+	/**
+	 * 
+	 * @return the observer
+	 */
 	protected Game getObserver() {
 		return observer;
 	}
