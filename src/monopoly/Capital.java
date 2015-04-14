@@ -22,8 +22,9 @@ public class Capital {
 	 * @param value initial capital
 	 */
 	public Capital(double value) {
-		this.value = value;
 		if (value < 0) value = 0;
+		this.value = value;
+		assert value >= 0 : "value must be greater zero" + value;
 	}
 	
 	/**
@@ -42,7 +43,7 @@ public class Capital {
 		return value;
 	}
 	
-	/*
+	/**
 	 * 
 	 * @param c capital to be added to current capital
 	 */
@@ -65,6 +66,7 @@ public class Capital {
 	public void sub(Capital c) {
 		this.value -= c.value;
 		if (value < 0) value = 0;
+		assert value >= 0 : "value must be greater zero" + value;
 	}
 	
 	/**
@@ -74,6 +76,7 @@ public class Capital {
 	public void sub(double x) {
 		this.value -= x;
 		if (value < 0) value = 0;
+		assert value >= 0 : "value must be greater zero" + value;
 	}
 	
 	/**

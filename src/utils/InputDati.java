@@ -18,9 +18,6 @@ public final class InputDati
 	  private final static String ELEMENTO_MENU_VERT = "[%d] %s\n";
 	  private final static int RIGA_MENU_MAX_LENGTH = 140;
 
-	  
-	  private final static int DEFAULT_MENU_OFFSET = 1;
-
 	  private static boolean mostraMessErr = true;
 	  
 	  private static Scanner creaScanner ()
@@ -299,9 +296,4 @@ public final class InputDati
 	  public static void mostraMessErr() {
 		  mostraMessErr = true;
 	  }
-	  
-	  public static <Q> Q selectElementFrom(Q[] array, String msg) {
-		  return array[textMenuVert( MyUtils.parseStringArray(array), msg, DEFAULT_MENU_OFFSET )];
-	  }
-
 }
