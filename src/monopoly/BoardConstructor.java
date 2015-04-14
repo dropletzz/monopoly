@@ -15,7 +15,6 @@ public final class BoardConstructor {
 	
 	/**
 	 *
-	 * @param o the observer of the Board
 	 * @return the object Board
 	 */
 	public static Board createBoard() {

@@ -19,7 +19,7 @@ public abstract class EventGenerator {
 	
 	/**
 	 * 
-	 * @param message message to be notified
+	 * @param e the event to be notified
 	 */
 	public void notice(Event e) {
 		for (Observer o:observers) {

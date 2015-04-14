@@ -55,18 +55,30 @@ public final class Player {
 		position = p;
 	}
 	
+	/**
+	 * player move forward 
+	 * @param result the dice roll
+	 */
 	public void move(int result) {
-		// precond result positivo
+		assert result > 0 : "result must be positive" + result;
 		int sum = position + result;
 		if (sum >= board.size()) addMoney(board.getStartBonus());
 		position = sum % board.size();
 	}
 	
+	/**
+	 * player move back 
+	 * @param amount how much player move back
+	 */
 	public void moveBack(int amount) {
-		// precond amount positivo
+		assert amount > 0 : "amount must be positive" + amount;
 		position = position - amount;
 	}
 	
+	/**
+	 * 
+	 * @param dest the destination slot
+	 */
 	public void moveTo(int dest) {
 		if (dest < position) addMoney(board.getStartBonus());
 		position = dest;
@@ -159,7 +171,7 @@ public final class Player {
 	/**
 	 * 
 	 * @param p property to be checked
-	 * @return true if the palyer has the property
+	 * @return true if the player has the property
 	 */
 	public boolean owns(Property p) {
 		return properties.contains(p);
@@ -195,6 +207,10 @@ public final class Player {
 		return p.getValue() < capital.getValue();
 	}
 	
+	/**
+	 * 
+	 * @return the slot where the player is
+	 */
 	public Slot getSlot() {
 		return board.getSlot(position);
 	}

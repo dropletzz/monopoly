@@ -24,6 +24,7 @@ public class ToPrison extends Slot {
 	/**
 	 * 
 	 * @param ps Players that have to go to the prison
+	 * @param result 
 	 */
 	@Override
 	public void action(Players ps, int result) {

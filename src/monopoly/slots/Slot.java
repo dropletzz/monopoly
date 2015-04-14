@@ -31,11 +31,16 @@ public abstract class Slot extends EventGenerator {
 	
 	/**
 	 * 
-	 * @param p Players must make an action
+	 * @param ps Players must make an action
+	 * @param result the result of the dice roll
 	 */
 	public abstract void action(Players ps, int result);
 	
-	
+	/**
+	 * 
+	 * @param o the slot to be checked
+	 * @return true if the slots are equal
+	 */
 	public boolean equals(Object o) {
 		if (o instanceof Slot)
 			return this.equals((Slot) o);
@@ -44,7 +49,9 @@ public abstract class Slot extends EventGenerator {
 	}
 	
 	/**
-	 * two Slots are considered to be equal if they have the same name
+	 * 
+	 * @param p the slot to be checked
+	 * @return true if they have the same name
 	 */
 	public boolean equals(Slot p) {
 		return p.getName().equals(this.getName());

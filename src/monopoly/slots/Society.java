@@ -19,11 +19,11 @@ public class Society extends Property {
 	public Society(String name, double value) {
 		super(name, value);
 	}
-
+	
 	/**
 	 * 
 	 * @param owner the owner of the slot
-	 * @param d the dice 
+	 * @param result of the dice roll
 	 * @return the amount to be paid
 	 */
 	@Override

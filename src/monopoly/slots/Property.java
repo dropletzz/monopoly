@@ -29,6 +29,8 @@ public abstract class Property extends Slot {
 	
 	/**
 	 * the action of the slot
+	 * @param ps the owners palyers 
+	 * @param result the result of the dice roll
 	 */
 	@Override
 	public void action(Players ps, int result) {

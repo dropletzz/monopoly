@@ -9,7 +9,7 @@ public class Group {
 	
 	private Property[] properties;
 	/**
-	 * Constructor of EmptySlot class
+	 * Constructor of Group class
 	 * @param properties the properties of the group
 	 */
 	public Group(Property... properties) {
