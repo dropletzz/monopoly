@@ -8,7 +8,7 @@ package monopoly.event_handlers;
 public interface Observer {
 	/**
 	 * 
-	 * @param message 
+	 * @param e the event 
 	 */
 	public void handleEvent(Event e);
 }

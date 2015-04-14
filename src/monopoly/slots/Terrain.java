@@ -14,7 +14,7 @@ public class Terrain extends Property {
 	private static final int GROUP_MULTIPLIER =  4;
 
 	/**
-	 * Constructor of Station class
+	 * Constructor of Terrain class
 	 * @param name the name of the slot
 	 * @param value the value of the slot
 	 */

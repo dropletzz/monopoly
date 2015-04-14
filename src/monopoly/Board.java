@@ -31,6 +31,7 @@ public final class Board extends EventGenerator {
 	 * @param startBonus bonus if start slot is active 
 	 */
 	public Board(int dimension, int prison, double startBonus) {
+		assert dimension > 0 : "the board hasn't slots!"; 
 		this.dimension = dimension;
 		this.slots = new Slot [dimension];
 		this.prison = prison;
@@ -45,6 +46,7 @@ public final class Board extends EventGenerator {
 	 * @return the slot at the position of the index
 	 */
 	public Slot getSlot (int index) {
+		assert index > 0 : "index can't be negative" + index;
 		return slots[index];
 	}
 	
@@ -54,6 +56,7 @@ public final class Board extends EventGenerator {
 	 * @param position the position of the slot
 	 */
 	public void addSlot(Slot s, int position) {
+		assert position > 0 : "position can't be negative" + position;
 		slots[position] = s;
 	}
 	
@@ -153,6 +156,7 @@ public final class Board extends EventGenerator {
 	 * @return the property at the passed index
 	 */
 	public Property getProperty(int index) {
+		assert index > 0 : "index can't be negative" + index;
 		if (slots[index] instanceof Property)
 			return (Property) slots[index];
 		return null;

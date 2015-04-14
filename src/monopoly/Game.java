@@ -48,7 +48,7 @@ public final class Game implements Observer {
 
 	/**
 	 * respond to a generic event by printing the event's message
-	 * @param message 
+	 * @param e the event 
 	 */
 	@Override
 	public void handleEvent(Event e) {

@@ -139,7 +139,7 @@ public final class Player {
 	/**
 	 * 
 	 * @param p property to be checked
-	 * @return true if the palyer has the property
+	 * @return true if the player has the property
 	 */
 	public boolean owns(Property p) {
 		return properties.contains(p);
