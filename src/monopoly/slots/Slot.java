@@ -1,6 +1,6 @@
 package monopoly.slots;
 
-import monopoly.EventGenerator;
+import monopoly.GameEventGenerator;
 import monopoly.Players;
 /**
  * 
@@ -8,7 +8,7 @@ import monopoly.Players;
  * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
-public abstract class Slot extends EventGenerator {
+public abstract class Slot extends GameEventGenerator {
 	
 	private String name;
 	

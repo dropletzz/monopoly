@@ -1,6 +1,7 @@
-package monopoly.events;
+package monopoly.cards.events;
 
 import monopoly.cards.Card;
+import monopoly.events.Event;
 /**
  * 
  * 

@@ -31,6 +31,6 @@ public class ToPrison extends Slot {
 		Player p = ps.current();
 		p.setPosition(prisonPosition);
 		p.imprison();
-		getObserver().handleEvent(new PlayerToPrison());
+		getGame().handleEvent(new PlayerToPrison());
 	}
 }
