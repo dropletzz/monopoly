@@ -75,8 +75,7 @@ public final class Board extends GameEventGenerator {
 		Player p = ps.current();
 		
 		if (prisonCheck(p)) {
-			getGame().handleEvent(new PlayerBroke(ps.current()));
-			ps.removeCurrent();
+			currentPlayerBroke(ps);
 		}
 		else
 			if ((consecutiveTurns == TURNS_TO_PRISON) && d.same()) {
@@ -107,6 +106,11 @@ public final class Board extends GameEventGenerator {
 		return p.broke();
 	}
 	
+	private void currentPlayerBroke(Players ps) {
+		getGame().handleEvent(new PlayerBroke(ps.current()));
+		ps.removeCurrent();
+	}
+	
 	/**
 	 * 
 	 * @param ps players to be checked
@@ -114,8 +118,7 @@ public final class Board extends GameEventGenerator {
 	 */
 	private void finalCheck(Players ps, Dice d) {
 		if (ps.current().broke()) {
-			getGame().handleEvent(new PlayerBroke(ps.current()));
-			ps.removeCurrent();
+			currentPlayerBroke(ps);
 		} else {
 			getGame().handleEvent(new PrintPlayerStatus(ps.current()));
 			if (!d.same()) {	
