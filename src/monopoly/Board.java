@@ -80,7 +80,6 @@ public final class Board extends GameEventGenerator {
 			if ((consecutiveTurns == TURNS_TO_PRISON) && d.same()) {
 				getGame().handleEvent(new PlayerToPrison());
 				p.imprison();
-				moveToPrison(p);
 				consecutiveTurns = 0;
 				ps.next();
 			} else {
@@ -127,14 +126,6 @@ public final class Board extends GameEventGenerator {
 			} else
 				consecutiveTurns++;
 		}
-	}
-        
-	/**
-	 * 
-	 * @param p the player who must go to the prison
-	 */
-    public void moveToPrison(Player p) {
-		p.setPosition(prison);
 	}
 
     /**

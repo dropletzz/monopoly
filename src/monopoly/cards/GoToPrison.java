@@ -7,15 +7,15 @@ import monopoly.Players;
  * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
-public class GoToPrison extends GoToNoStartBonus {
+public class GoToPrison extends Card {
 
 	/**
 	 * Constructor of GoToPrison class
 	 * @param destination the destination slot
 	 * @param text the text
 	 */
-	public GoToPrison(int destination, String text) {
-		super(destination, text);
+	public GoToPrison(String text) {
+		super(text);
 	}
 	
 	/**
@@ -24,7 +24,6 @@ public class GoToPrison extends GoToNoStartBonus {
 	 * @param result the dice roll
 	 */
 	public void effect(Players ps, int result) {
-		super.effect(ps, result);
 		ps.current().imprison();
 	}
 }

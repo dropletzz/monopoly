@@ -222,6 +222,7 @@ public final class Player {
 	 */
 	public void imprison() {
 		imprisoned = true;
+		position = board.getPrisonPosition();
 	}
 	
 	/**
