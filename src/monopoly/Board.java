@@ -74,9 +74,8 @@ public final class Board extends GameEventGenerator {
 	public void playTurn(Players ps, Dice d) {
 		Player p = ps.current();
 		
-		if (prisonCheck(p)) {
+		if (playerBrokeForPrison(p))
 			currentPlayerBroke(ps);
-		}
 		else
 			if ((consecutiveTurns == TURNS_TO_PRISON) && d.same()) {
 				getGame().handleEvent(new PlayerToPrison());
@@ -97,7 +96,7 @@ public final class Board extends GameEventGenerator {
 	 * @param p the player to be checked
 	 * @return true if the player broke to exit to prison
 	 */
-	private boolean prisonCheck(Player p) {
+	private boolean playerBrokeForPrison(Player p) {
 		if (p.imprisoned()) {
 			p.withdrawMoney(PRISON_TAX);
 			p.setFree();
