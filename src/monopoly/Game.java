@@ -1,6 +1,5 @@
 package monopoly;
 import monopoly.cards.DecksConstructor;
-import monopoly.events.Event;
 import monopoly.events.PrintPlayerStatus;
 import monopoly.gui.TextGUI;
 import monopoly.slots.Accident;

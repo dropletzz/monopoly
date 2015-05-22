@@ -1,7 +1,7 @@
 package monopoly.cards.events;
 
+import monopoly.Event;
 import monopoly.cards.Card;
-import monopoly.events.Event;
 /**
  * 
  * 

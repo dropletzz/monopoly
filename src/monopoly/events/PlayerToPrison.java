@@ -1,5 +1,7 @@
 package monopoly.events;
 
+import monopoly.Event;
+
 /**
  * 
  * 

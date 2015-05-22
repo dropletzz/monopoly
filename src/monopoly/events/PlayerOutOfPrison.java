@@ -1,6 +1,7 @@
 package monopoly.events;
 
 import monopoly.Capital;
+import monopoly.Event;
 /**
  * 
  * 

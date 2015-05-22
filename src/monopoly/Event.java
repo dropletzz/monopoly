@@ -1,4 +1,4 @@
-package monopoly.events;
+package monopoly;
 /**
  * 
  * 
