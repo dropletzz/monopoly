@@ -27,7 +27,7 @@ public class WithdrawMoney extends Card {
 	 * @param result 
 	 */
 	@Override
-	public void effect(Players ps, int result) {
+	public void thisEffect(Players ps, int result) {
 		ps.current().withdrawMoney(amount);
 	}
 }

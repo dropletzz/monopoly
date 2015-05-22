@@ -28,7 +28,7 @@ public class Birthday extends Card {
 	 * @param result 
 	 */
 	@Override
-	public void effect(Players ps, int result) {
+	public void thisEffect(Players ps, int result) {
 		for (Player p:ps.others()) {
 			p.withdrawMoney(amount);
 			ps.current().addMoney(amount);

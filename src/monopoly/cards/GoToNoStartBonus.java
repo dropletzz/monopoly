@@ -26,7 +26,7 @@ public class GoToNoStartBonus extends Card {
 	 * @param result the dice roll
 	 */
 	@Override
-	public void effect(Players ps, int result) {
+	public void thisEffect(Players ps, int result) {
 		ps.current().setPosition(destination);
 		ps.current().getSlot().action(ps, result);
 	}

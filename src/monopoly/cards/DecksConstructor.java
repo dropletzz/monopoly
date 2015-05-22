@@ -9,6 +9,7 @@ public class DecksConstructor {
 	 */
 	public static Deck chancesDeck(int prisonPosition) {
 		Deck d = new Deck();
+
 		d.addCard(new GoToNoStartBonus(1, "Ritornate al Vicolo Corto"));
 		d.addCard(new AddMoney(60, "E' maturata la cedola delle vostre azioni: ritirate euro 60 dalla banca"));
 		d.addCard(new WithdrawMoney(125, "Scade il vostro premio di assicurazione: pagate euro 125 in banca"));

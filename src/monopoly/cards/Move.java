@@ -27,7 +27,7 @@ public class Move extends Card {
 	 * @param result 
 	 */
 	@Override
-	public void effect(Players ps, int result) {
+	public void thisEffect(Players ps, int result) {
 		Player p = ps.current();
 		if (distance >= 0)
 			p.move(distance);
