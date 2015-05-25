@@ -98,7 +98,7 @@ public final class Board extends GameEventGenerator {
 	private boolean playerBrokeForPrison(Player p) {
 		if (p.imprisoned()) {
 			p.withdrawMoney(PRISON_TAX);
-			p.setFree();
+			p.free();
 			getGame().handleEvent(new PlayerOutOfPrison(PRISON_TAX));
 		}
 		return p.broke();

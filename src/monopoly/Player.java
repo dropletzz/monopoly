@@ -228,7 +228,7 @@ public final class Player {
 	/**
 	 * set player free
 	 */
-	public void setFree() {
+	public void free() {
 		imprisoned = false;
 	}
 	
