@@ -1,5 +1,6 @@
-package monopoly.events;
+package monopoly.slots.events;
 
+import monopoly.events.Event;
 import monopoly.slots.Property;
 /**
  * 

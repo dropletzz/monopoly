@@ -1,6 +1,9 @@
 package monopoly.gui;
 
-import monopoly.*;
+import monopoly.Board;
+import monopoly.Dice;
+import monopoly.Player;
+import monopoly.Players;
 import utils.InputDati;
 /**
  * 

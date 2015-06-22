@@ -3,8 +3,8 @@ package monopoly.slots;
 import monopoly.Capital;
 import monopoly.Player;
 import monopoly.Players;
-import monopoly.events.PlayerBoughtProperty;
-import monopoly.events.PlayerPaidForProperty;
+import monopoly.slots.events.PlayerBoughtProperty;
+import monopoly.slots.events.PlayerPaidForProperty;
 /**
  * 
  * 
@@ -46,7 +46,7 @@ public abstract class Property extends Slot {
 			if (current.canBuy(this)) {
 				current.withdrawMoney(cost);
 				current.addProperty(this);
-				getObserver().handleEvent(new PlayerBoughtProperty(this));
+				getGame().handleEvent(new PlayerBoughtProperty(this));
 			}
 		}
 		else
@@ -54,7 +54,7 @@ public abstract class Property extends Slot {
 				double amt = calculateAmount(owner, result);
 				current.withdrawMoney(amt);
 				owner.addMoney(amt);
-				getObserver().handleEvent(new PlayerPaidForProperty(owner, this, amt));
+				getGame().handleEvent(new PlayerPaidForProperty(owner, this, amt));
 			}
 	}
 	

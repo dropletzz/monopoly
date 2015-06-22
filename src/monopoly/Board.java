@@ -12,7 +12,7 @@ import monopoly.slots.*;
  * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
-public final class Board extends EventGenerator {
+public final class Board extends GameEventGenerator {
 	
 	private static final int TURNS_TO_PRISON = 2;
 	private static final double PRISON_TAX = 50;
@@ -75,12 +75,12 @@ public final class Board extends EventGenerator {
 		Player p = ps.current();
 		
 		if (prisonCheck(p)) {
-			getObserver().handleEvent(new PlayerBroke(ps.current()));
+			getGame().handleEvent(new PlayerBroke(ps.current()));
 			ps.removeCurrent();
 		}
 		else
 			if ((consecutiveTurns == TURNS_TO_PRISON) && d.same()) {
-				getObserver().handleEvent(new PlayerToPrison());
+				getGame().handleEvent(new PlayerToPrison());
 				p.imprison();
 				moveToPrison(p);
 				consecutiveTurns = 0;
@@ -102,7 +102,7 @@ public final class Board extends EventGenerator {
 		if (p.imprisoned()) {
 			p.withdrawMoney(PRISON_TAX);
 			p.setFree();
-			getObserver().handleEvent(new PlayerOutOfPrison(PRISON_TAX));
+			getGame().handleEvent(new PlayerOutOfPrison(PRISON_TAX));
 		}
 		return p.broke();
 	}
@@ -114,10 +114,10 @@ public final class Board extends EventGenerator {
 	 */
 	private void finalCheck(Players ps, Dice d) {
 		if (ps.current().broke()) {
-			getObserver().handleEvent(new PlayerBroke(ps.current()));
+			getGame().handleEvent(new PlayerBroke(ps.current()));
 			ps.removeCurrent();
 		} else {
-			getObserver().handleEvent(new PrintPlayerStatus(ps.current()));
+			getGame().handleEvent(new PrintPlayerStatus(ps.current()));
 			if (!d.same()) {	
 				ps.next();
 				consecutiveTurns = 0;
@@ -155,10 +155,10 @@ public final class Board extends EventGenerator {
 	 *
 	 * @param o the observer to add
 	 */
-	public void setObserver(Game o) {
-		super.setObserver(o);
+	public void setGame(Game o) {
+		super.setGame(o);
 		for (Slot s:slots) {
-			s.setObserver(o);
+			s.setGame(o);
 		}
 	}
 	

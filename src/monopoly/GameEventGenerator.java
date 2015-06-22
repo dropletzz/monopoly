@@ -5,23 +5,23 @@ package monopoly;
  * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
-public abstract class EventGenerator {
+public abstract class GameEventGenerator {
 
-	private Game observer;
+	private Game game;
 	
 	/**
 	 * 
 	 * @param o add to the list of observers
 	 */
-	public void setObserver(Game o) {
-		observer = o;
+	public void setGame(Game o) {
+		game = o;
 	}
 	
 	/**
 	 * 
 	 * @return the observer
 	 */
-	protected Game getObserver() {
-		return observer;
+	protected Game getGame() {
+		return game;
 	}
 }

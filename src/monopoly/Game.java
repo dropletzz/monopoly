@@ -22,7 +22,7 @@ public final class Game {
 	 */
 	public Game() {
 		board = BoardConstructor.createBoard();
-		board.setObserver(this);
+		board.setGame(this);
 		Chance.setDeck(DecksConstructor.chancesDeck(board.getPrisonPosition()));
 		Accident.setDeck(DecksConstructor.accidentsDeck(board.getPrisonPosition()));
 	}

@@ -3,7 +3,7 @@ package monopoly.slots;
 import monopoly.Players;
 import monopoly.cards.Card;
 import monopoly.cards.Deck;
-import monopoly.events.CardEvent;
+import monopoly.cards.events.CardEvent;
 /**
  * 
  * 
@@ -29,7 +29,7 @@ public class Accident extends Slot {
 	@Override
 	public void action(Players ps, int result) {
 		Card card = ACCIDENT_CARDS.nextCard();
-		getObserver().handleEvent(new CardEvent(card));
+		getGame().handleEvent(new CardEvent(card));
 		card.effect(ps, result);
 	}
 	
