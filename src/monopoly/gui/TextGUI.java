@@ -1,5 +1,7 @@
 package monopoly.gui;
 
+import java.util.Vector;
+
 import monopoly.Board;
 import monopoly.Dice;
 import monopoly.Player;
@@ -119,10 +121,9 @@ public final class TextGUI {
 	 * 
 	 * @param ps print that players ps win the game
 	 */
-	public static void printWinners(Players ps) {
-		for (Player p:ps.toQueue())
+	public static void printWinners(Vector<Player> ps) {
+		for (Player p:ps)
 			printWinner(p);
-		
 	}
 	
 	/**

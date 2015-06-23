@@ -1,9 +1,5 @@
 package monopoly;
 
-import monopoly.events.PlayerOutOfPrison;
-import monopoly.events.PlayerBroke;
-import monopoly.events.PlayerToPrison;
-import monopoly.events.PrintPlayerStatus;
 import monopoly.slots.*;
 
 /**
@@ -14,13 +10,10 @@ import monopoly.slots.*;
  */
 public final class Board extends GameEventGenerator {
 	
-	private static final int TURNS_TO_PRISON = 2;
-	private static final double PRISON_TAX = 50;
+
 
 	final private Slot slots [];
 	final private int prison;
-	private byte consecutiveTurns;
-	private int turnsPlayed;
 	private double startBonus;
 	
 	/**
@@ -33,8 +26,6 @@ public final class Board extends GameEventGenerator {
 		assert dimension > 0 : "the board hasn't slots!"; 
 		this.slots = new Slot [dimension];
 		this.prison = prison;
-		this.consecutiveTurns = 0;
-		this.turnsPlayed = 0;
 		this.startBonus = startBonus;
 	}
 	
@@ -62,70 +53,8 @@ public final class Board extends GameEventGenerator {
 	 * 
 	 * @param p Players involved in the action
 	 */
-	private void action(Players ps, int result) {
+	public void action(Players ps, int result) {
 		slots[ps.current().getPosition()].action(ps, result);
-	}
-
-	/**
-	 * 
-	 * @param ps Players who have to play turn
-	 * @param d the Dice
-	 */
-	public void playTurn(Players ps, Dice d) {
-		Player p = ps.current();
-		
-		if (playerBrokeForPrison(p))
-			currentPlayerBroke(ps);
-		else
-			if ((consecutiveTurns == TURNS_TO_PRISON) && d.same()) {
-				getGame().handleEvent(new PlayerToPrison());
-				p.imprison();
-				consecutiveTurns = 0;
-				ps.next();
-			} else {
-				p.move(d.result());
-				action(ps, d.result());
-	
-				finalCheck(ps, d);
-			}
-	}
-	
-	/**
-	 * 
-	 * @param p the player to be checked
-	 * @return true if the player broke to exit to prison
-	 */
-	private boolean playerBrokeForPrison(Player p) {
-		if (p.imprisoned()) {
-			p.withdrawMoney(PRISON_TAX);
-			p.free();
-			getGame().handleEvent(new PlayerOutOfPrison(PRISON_TAX));
-		}
-		return p.broke();
-	}
-	
-	private void currentPlayerBroke(Players ps) {
-		getGame().handleEvent(new PlayerBroke(ps.current()));
-		ps.removeCurrent();
-	}
-	
-	/**
-	 * 
-	 * @param ps players to be checked
-	 * @param d the dice
-	 */
-	private void finalCheck(Players ps, Dice d) {
-		if (ps.current().broke()) {
-			currentPlayerBroke(ps);
-		} else {
-			getGame().handleEvent(new PrintPlayerStatus(ps.current()));
-			if (!d.same()) {	
-				ps.next();
-				consecutiveTurns = 0;
-				turnsPlayed++;
-			} else
-				consecutiveTurns++;
-		}
 	}
 
     /**
@@ -134,14 +63,6 @@ public final class Board extends GameEventGenerator {
      */
 	public int getPrisonPosition() {
 		return prison;
-	}
-	
-	/**
-	 * 
-	 * @return the number of the turns played
-	 */
-	public int getTurnsPlayed() {
-		return turnsPlayed;
 	}
 	
 	/**

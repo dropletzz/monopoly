@@ -144,4 +144,8 @@ public final class Players {
 			if (p.owns(prop)) return p;
 		return null;
 	}
+	
+	public int size() {
+		return players.size();
+	}
 }
