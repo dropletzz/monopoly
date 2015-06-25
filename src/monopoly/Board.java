@@ -51,11 +51,11 @@ public final class Board extends GameEventGenerator {
 	
 	/**
 	 * 
-	 * @param ps Players involved in the action
+	 * @param players Players involved in the action
 	 * @param result the result of the dice roll
 	 */
-	public void action(Players ps, int result) {
-		slots[ps.current().getPosition()].action(ps, result);
+	public void action(Players players, int result) {
+		slots[players.current().getPosition()].action(players, result);
 	}
 
     /**
@@ -68,12 +68,12 @@ public final class Board extends GameEventGenerator {
 	
 	/**
 	 *
-	 * @param o the observer to add
+	 * @param game the observer to add
 	 */
-	public void setGame(Game o) {
-		super.setGame(o);
+	public void setGame(Game game) {
+		super.setGame(game);
 		for (Slot s:slots) {
-			s.setGame(o);
+			s.setGame(game);
 		}
 	}
 	

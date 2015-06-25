@@ -35,9 +35,9 @@ public class Accident extends Slot {
 	
 	/**
 	 * 
-	 * @param d set the deck d
+	 * @param deck set the deck d
 	 */
-	public static void setDeck(Deck d) {
-		ACCIDENT_CARDS = d;
+	public static void setDeck(Deck deck) {
+		ACCIDENT_CARDS = deck;
 	}
 }

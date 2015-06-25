@@ -164,19 +164,19 @@ public final class Player {
 	
 	/**
 	 * 
-	 * @param p the player add p of his properties 
+	 * @param prop the player add p of his properties 
 	 */
-	public void addProperty(Property p) {
-		properties.add(p);
+	public void addProperty(Property prop) {
+		properties.add(prop);
 	}
 	
 	/**
 	 * 
-	 * @param p property to be checked
+	 * @param prop property to be checked
 	 * @return true if the player has the property
 	 */
-	public boolean owns(Property p) {
-		return properties.contains(p);
+	public boolean owns(Property prop) {
+		return properties.contains(prop);
 	}
 	
 	/**
@@ -202,11 +202,11 @@ public final class Player {
 	
 	/**
 	 * 
-	 * @param p the property 
+	 * @param prop the property 
 	 * @return true if the player can buy the property
 	 */
-	public boolean canBuy(Property p) {
-		return p.getValue() < capital.getValue();
+	public boolean canBuy(Property prop) {
+		return prop.getValue() < capital.getValue();
 	}
 	
 	/**

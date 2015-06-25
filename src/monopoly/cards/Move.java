@@ -23,17 +23,17 @@ public class Move extends Card {
 
 	/**
 	 * 
-	 * @param ps the players who must move
+	 * @param players the players who must move
 	 * @param result 
 	 */
 	@Override
-	public void thisEffect(Players ps, int result) {
-		Player p = ps.current();
+	public void thisEffect(Players players, int result) {
+		Player p = players.current();
 		if (distance >= 0)
 			p.move(distance);
 		else
 			p.moveBack(-distance);
 		
-		p.getSlot().action(ps, distance);
+		p.getSlot().action(players, distance);
 	}
 }

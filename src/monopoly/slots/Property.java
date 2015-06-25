@@ -35,13 +35,13 @@ public abstract class Property extends Slot {
 	
 	/**
 	 * the action of the slot
-	 * @param ps the owners players 
+	 * @param player the owners players 
 	 * @param result the result of the dice roll
 	 */
 	@Override
-	public void action(Players ps, int result) {
-		Player owner = ps.ownerOf(this);
-		Player current = ps.current();
+	public void action(Players player, int result) {
+		Player owner = player.ownerOf(this);
+		Player current = player.current();
 		if (owner == null) {
 			if (current.canBuy(this)) {
 				current.withdrawMoney(cost);

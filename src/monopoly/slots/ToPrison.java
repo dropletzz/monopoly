@@ -23,12 +23,12 @@ public class ToPrison extends Slot {
 
 	/**
 	 * 
-	 * @param ps Players that have to go to the prison
+	 * @param players Players that have to go to the prison
 	 * @param result 
 	 */
 	@Override
-	public void action(Players ps, int result) {
-		Player p = ps.current();
+	public void action(Players players, int result) {
+		Player p = players.current();
 		p.setPosition(prisonPosition);
 		p.imprison();
 		getGame().handleEvent(new PlayerToPrison());

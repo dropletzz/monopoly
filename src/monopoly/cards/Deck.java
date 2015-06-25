@@ -23,10 +23,10 @@ public class Deck {
 	
 	/**
 	 * 
-	 * @param c card to be added
+	 * @param card card to be added
 	 */
-	public void addCard(Card c) {
-		cards.add(c);
+	public void addCard(Card card) {
+		cards.add(card);
 	}
 	
 	/**

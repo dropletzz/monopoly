@@ -71,12 +71,12 @@ public class GameLogic extends GameEventGenerator {
 	
 	/**
 	 * check if the player can exit to prison
-	 * @param p the player to check
+	 * @param player the player to check
 	 */
-	private void prisonCheck(Player p) {
-		if (p.imprisoned()) {
-			p.withdrawMoney(PRISON_TAX);
-			p.free();
+	private void prisonCheck(Player player) {
+		if (player.imprisoned()) {
+			player.withdrawMoney(PRISON_TAX);
+			player.free();
 		}
 	}
 	
@@ -153,9 +153,9 @@ public class GameLogic extends GameEventGenerator {
 	
 	/**
 	 * set the players 
-	 * @param ps the players
+	 * @param players the players
 	 */
-	public void setPlayers(Players ps) {
-		players = ps;
+	public void setPlayers(Players players) {
+		this.players = players;
 	}
 }

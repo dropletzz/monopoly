@@ -23,12 +23,12 @@ public class Tax extends Slot {
 
 	/**
 	 * 
-	 * @param ps Players who have to paid
+	 * @param players Players who have to paid
 	 * @param result the dice roll
 	 */
 	@Override
-	public void action(Players ps, int result) {
-		ps.current().withdrawMoney(amount);
+	public void action(Players players, int result) {
+		players.current().withdrawMoney(amount);
 		getGame().handleEvent(new PlayerPaidTax(this));
 	}
 

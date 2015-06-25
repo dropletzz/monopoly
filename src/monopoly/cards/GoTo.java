@@ -23,12 +23,12 @@ public class GoTo extends Card {
 
 	/**
 	 * 
-	 * @param ps the players who must move
+	 * @param players the players who must move
 	 * @param result the dice roll
 	 */
 	@Override
-	public void thisEffect(Players ps, int result) {
-		ps.current().moveTo(destination);
-		ps.current().getSlot().action(ps, result);
+	public void thisEffect(Players players, int result) {
+		players.current().moveTo(destination);
+		players.current().getSlot().action(players, result);
 	}
 }

@@ -19,10 +19,10 @@ public class GoToPrison extends Card {
 	
 	/**
 	 * 
-	 * @param ps the players who must move to prison
+	 * @param players the players who must move to prison
 	 * @param result the dice roll
 	 */
-	public void thisEffect(Players ps, int result) {
-		ps.current().imprison();
+	public void thisEffect(Players players, int result) {
+		players.current().imprison();
 	}
 }

@@ -40,12 +40,12 @@ public final class TextGUI {
 	/**
 	 * 
 	 * @param n the number of the player
-	 * @param b the board
+	 * @param board the board
 	 * @return the player n
 	 */
-	public static Player getPlayer(int n, Board b) {
+	public static Player getPlayer(int n, Board board) {
 		String name = InputDati.readStringNoEmpty(String.format("Inserisci il nome del giocatore %d: ", n));
-		return new Player(name, b);
+		return new Player(name, board);
 	}
 	
 	/**
@@ -69,19 +69,19 @@ public final class TextGUI {
 	
 	/**
 	 * 
-	 * @param p print that is turn of player p
+	 * @param player print that is turn of player p
 	 */
-	public static void turnStartMessage(Player p) {
+	public static void turnStartMessage(Player player) {
 		System.out.println(String.format("%s tocca a te! [Casella %d]\nCapitale: %s",
-				p.getName(), p.getPosition(), p.getValue()));
+				player.getName(), player.getPosition(), player.getValue()));
 	}
 	
 	/**
 	 * 
-	 * @param p print the position of player p
+	 * @param player print the position of player p
 	 */
-	public static void printPosition(Player p) {
-		System.out.println(String.format("Sei sulla casella %d", p.getPosition()));
+	public static void printPosition(Player player) {
+		System.out.println(String.format("Sei sulla casella %d", player.getPosition()));
 	}
 	
 	/**
@@ -94,10 +94,10 @@ public final class TextGUI {
 	
 	/**
 	 * 
-	 * @param p print the player p is broked
+	 * @param player print the player p is broked
 	 */
-	public static void playerBroke(Player p) {
-		System.out.println(String.format("%s e' fallito!", p.getName()));
+	public static void playerBroke(Player player) {
+		System.out.println(String.format("%s e' fallito!", player.getName()));
 	}
 	
 	/**
@@ -110,33 +110,33 @@ public final class TextGUI {
 	
 	/**
 	 * 
-	 * @param p print that player p wins the game
+	 * @param player print that player p wins the game
 	 */
-	public static void printWinner(Player p) {
-		System.out.println(String.format("HA VINTO %s", p.getName()));
+	public static void printWinner(Player player) {
+		System.out.println(String.format("HA VINTO %s", player.getName()));
 	}
 	
 	/**
 	 * 
-	 * @param ps print that players ps win the game
+	 * @param players print that players ps win the game
 	 */
-	public static void printWinners(Vector<Player> ps) {
-		for (Player p:ps)
+	public static void printWinners(Vector<Player> players) {
+		for (Player p:players)
 			printWinner(p);
 	}
 	
 	/**
 	 * 
-	 * @param p print the list of properties of player p
+	 * @param player print the list of properties of player p
 	 */
-	public static void printPropertiesPlayer(Player p) {
-		System.out.println(String.format("\nVa sulla casella %d\nCapitale: %s", p.getPosition(), p.getValue()));
-		if(p.getProperties() == null)
-			System.out.println(String.format("%s non e' in possesso di nessuna proprieta'", p.getName()));
+	public static void printPropertiesPlayer(Player player) {
+		System.out.println(String.format("\nVa sulla casella %d\nCapitale: %s", player.getPosition(), player.getValue()));
+		if(player.getProperties() == null)
+			System.out.println(String.format("%s non e' in possesso di nessuna proprieta'", player.getName()));
 		else {
-			System.out.println(String.format("%s e' in possesso di:", p.getName()));
-			for (int i = 0; i < p.getProperties().size(); i++)
-				System.out.println(String.format("\t-%s", p.getProperties().get(i).getName()));
+			System.out.println(String.format("%s e' in possesso di:", player.getName()));
+			for (int i = 0; i < player.getProperties().size(); i++)
+				System.out.println(String.format("\t-%s", player.getProperties().get(i).getName()));
 		}
 	}
 }

@@ -23,11 +23,11 @@ public class AddMoney extends Card {
 
 	/**
 	 * 
-	 * @param ps the players who must earn
+	 * @param players the players who must earn
 	 * @param result 
 	 */
 	@Override
-	public void thisEffect(Players ps, int result) {
-		ps.current().addMoney(amount);
+	public void thisEffect(Players players, int result) {
+		players.current().addMoney(amount);
 	}
 }

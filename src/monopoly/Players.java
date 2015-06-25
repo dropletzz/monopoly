@@ -71,19 +71,19 @@ public final class Players {
 	
 	/**
 	 * 
-	 * @param p player to be checked
+	 * @param player player to be checked
 	 * @return true if the queue contains that player
 	 */
-	public boolean contains(Player p) {
-		return players.contains(p);
+	public boolean contains(Player player) {
+		return players.contains(player);
 	}
 	
 	/**
 	 * 
-	 * @param p add p at the queue
+	 * @param player add p at the queue
 	 */
-	public void add(Player p) {
-		players.add(p);
+	public void add(Player player) {
+		players.add(player);
 	}
 	
 	/**

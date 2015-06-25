@@ -23,11 +23,11 @@ public class WithdrawMoney extends Card {
 
 	/**
 	 * 
-	 * @param ps the players who must paid
+	 * @param players the players who must paid
 	 * @param result 
 	 */
 	@Override
-	public void thisEffect(Players ps, int result) {
-		ps.current().withdrawMoney(amount);
+	public void thisEffect(Players players, int result) {
+		players.current().withdrawMoney(amount);
 	}
 }

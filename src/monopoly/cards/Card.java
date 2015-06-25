@@ -31,20 +31,20 @@ public abstract class Card {
 	
 	/**
 	 * active the effect of this particular card
-	 * @param ps 
+	 * @param players 
 	 * @param result 
 	 */
-	protected abstract void thisEffect(Players ps, int result);
+	protected abstract void thisEffect(Players players, int result);
 	
 	/**
 	 * active the effect of the card, including the ones that compose it
-	 * @param ps 
+	 * @param players 
 	 * @param result 
 	 */
-	public void effect(Players ps, int result) {
-		thisEffect(ps, result);
+	public void effect(Players players, int result) {
+		thisEffect(players, result);
 		if (card != null)
-			card.effect(ps, result);
+			card.effect(players, result);
 	}
 	
 	/**

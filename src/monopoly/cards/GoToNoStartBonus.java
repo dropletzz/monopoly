@@ -22,12 +22,12 @@ public class GoToNoStartBonus extends Card {
 
 	/**
 	 * if the player pass by start don't receive the bonus
-	 * @param ps the players who must move
+	 * @param players the players who must move
 	 * @param result the dice roll
 	 */
 	@Override
-	public void thisEffect(Players ps, int result) {
-		ps.current().setPosition(destination);
-		ps.current().getSlot().action(ps, result);
+	public void thisEffect(Players players, int result) {
+		players.current().setPosition(destination);
+		players.current().getSlot().action(players, result);
 	}
 }

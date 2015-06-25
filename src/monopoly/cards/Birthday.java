@@ -24,14 +24,14 @@ public class Birthday extends Card {
 
 	/**
 	 * 
-	 * @param ps the players who celebrate birthday
+	 * @param players the players who celebrate birthday
 	 * @param result 
 	 */
 	@Override
-	public void thisEffect(Players ps, int result) {
-		for (Player p:ps.others()) {
+	public void thisEffect(Players players, int result) {
+		for (Player p:players.others()) {
 			p.withdrawMoney(amount);
-			ps.current().addMoney(amount);
+			players.current().addMoney(amount);
 		}
 	}
 }

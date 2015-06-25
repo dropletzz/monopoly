@@ -23,21 +23,21 @@ public class Chance extends Slot {
 
 	/**
 	 * 
-	 * @param ps Players must make an chance
+	 * @param players Players must make an chance
 	 * @param result the result of the dice roll
 	 */
 	@Override
-	public void action(Players ps, int result) {
+	public void action(Players players, int result) {
 		Card card = CHANCE_CARDS.nextCard();
 		getGame().handleEvent(new CardEvent(card));
-		card.effect(ps, result);
+		card.effect(players, result);
 	}	
 	
 	/**
 	 * 
-	 * @param d set the deck d
+	 * @param deck set the deck d
 	 */
-	public static void setDeck(Deck d) {
-		CHANCE_CARDS = d;
+	public static void setDeck(Deck deck) {
+		CHANCE_CARDS = deck;
 	}
 }

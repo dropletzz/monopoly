@@ -11,10 +11,10 @@ public abstract class GameEventGenerator {
 	
 	/**
 	 * 
-	 * @param o add to the list of observers
+	 * @param game add to the list of observers
 	 */
-	public void setGame(Game o) {
-		game = o;
+	public void setGame(Game game) {
+		game = game;
 	}
 	
 	/**
