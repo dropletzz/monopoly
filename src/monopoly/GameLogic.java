@@ -30,6 +30,7 @@ public class GameLogic extends GameEventGenerator {
 	 * @param game
 	 */
 	public GameLogic(Game game) {
+		super();
 		board = BoardConstructor.createBoard();
 		board.setGame(game);
 		setGame(game);

@@ -24,7 +24,7 @@ public final class Game {
 	 * start game
 	 */
 	public void play() {
-		gameLogic.setPlayers(TextGUI.getPlayers(gameLogic.getBoard()));
+		gameLogic.setPlayers(TextGUI.getPlayers(gameLogic.getBoard()).shuffle());
 		
 		while (! gameLogic.gameOver()) {
 			TextGUI.turnStartMessage(gameLogic.currentPlayer());

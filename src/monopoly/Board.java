@@ -8,7 +8,7 @@ import monopoly.slots.*;
  * @author Giovanni Caniato, Donatello Rovizzi, Mattia Pescimoro 
  *
  */
-public final class Board extends GameEventGenerator {
+public final class Board {
 	
 
 
@@ -71,7 +71,6 @@ public final class Board extends GameEventGenerator {
 	 * @param game the observer to add
 	 */
 	public void setGame(Game game) {
-		super.setGame(game);
 		for (Slot s:slots) {
 			s.setGame(game);
 		}

@@ -89,7 +89,7 @@ public final class TextGUI {
 	 * print the separator each turn
 	 */
 	public static void separator() {
-		System.out.println("$-------------------------------------------$");
+		System.out.println("\n$-------------------------------------------$\n");
 	}
 	
 	/**

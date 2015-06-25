@@ -14,7 +14,7 @@ public abstract class GameEventGenerator {
 	 * @param game add to the list of observers
 	 */
 	public void setGame(Game game) {
-		game = game;
+		this.game = game;
 	}
 	
 	/**

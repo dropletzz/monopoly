@@ -40,6 +40,8 @@ public abstract class Property extends Slot {
 	 */
 	@Override
 	public void action(Players player, int result) {
+		assert group != null : "a property has to belong to a group";
+		
 		Player owner = player.ownerOf(this);
 		Player current = player.current();
 		if (owner == null) {

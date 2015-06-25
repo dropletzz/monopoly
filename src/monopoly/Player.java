@@ -82,6 +82,7 @@ public final class Player {
 	 * @param dest the destination slot
 	 */
 	public void moveTo(int dest) {
+		assert dest >= 0 && dest < board.size() : String.format("destination index must be between 0 and %i", board.size());
 		if (dest < position) addMoney(board.getStartBonus());
 		position = dest;
 	}
@@ -119,6 +120,7 @@ public final class Player {
 	 * @param amount amount of money to be added
 	 */
 	public void addMoney(double amount) {
+		assert amount >= 0 : "amount must be non-negative";
 		capital.add(amount);
 	}
 	
@@ -127,6 +129,7 @@ public final class Player {
 	 * @param amount amount of money to be remove
 	 */
 	public void withdrawMoney(double amount) {
+		assert amount >= 0 : "amount must be non-negative";
 		capital.sub(amount);
 	}
 	
