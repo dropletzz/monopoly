@@ -145,6 +145,10 @@ public final class Players {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @return the number of players
+	 */
 	public int size() {
 		return players.size();
 	}

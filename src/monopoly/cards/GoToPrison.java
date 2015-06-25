@@ -11,7 +11,6 @@ public class GoToPrison extends Card {
 
 	/**
 	 * Constructor of GoToPrison class
-	 * @param destination the destination slot
 	 * @param text the text
 	 */
 	public GoToPrison(String text) {

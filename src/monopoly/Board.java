@@ -51,7 +51,8 @@ public final class Board extends GameEventGenerator {
 	
 	/**
 	 * 
-	 * @param p Players involved in the action
+	 * @param ps Players involved in the action
+	 * @param result the result of the dice roll
 	 */
 	public void action(Players ps, int result) {
 		slots[ps.current().getPosition()].action(ps, result);

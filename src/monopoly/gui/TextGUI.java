@@ -80,7 +80,6 @@ public final class TextGUI {
 	 * 
 	 * @param p print the position of player p
 	 */
-	
 	public static void printPosition(Player p) {
 		System.out.println(String.format("Sei sulla casella %d", p.getPosition()));
 	}

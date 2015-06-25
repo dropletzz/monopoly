@@ -10,7 +10,6 @@ import monopoly.Players;
 public abstract class Card {
 	
 	private Card card;
-	
 	private String text;
 	
 	/**
@@ -59,6 +58,11 @@ public abstract class Card {
 			return text + "\n" + card.toString();
 	}
 	
+	/**
+	 * 
+	 * @param card the card to be composed with another card
+	 * @return the card composed
+	 */
 	public Card compose(Card card) {
 		this.card = card;
 		return this;
