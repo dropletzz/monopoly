@@ -113,7 +113,7 @@ public class GameLogic extends GameEventGenerator {
 	 * @return true if the game is over
 	 */
 	public boolean gameOver() {
-		return (turnsPlayed > MAX_TURNS) || players.single();
+		return (turnsPlayed >= MAX_TURNS) || players.single();
 	}
 	
 	/**
