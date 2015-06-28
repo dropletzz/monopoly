@@ -43,10 +43,7 @@ public final class Game {
 			TextGUI.separator();
 		}
 		
-		if (players.single())
-			TextGUI.printWinner(players.current());
-		else
-			TextGUI.printWinners(players);
+		TextGUI.printWinners(board.getWinners(players));
 	}
 
 	/**

@@ -1,5 +1,7 @@
 package monopoly;
 
+import java.util.Vector;
+
 import monopoly.events.PlayerOutOfPrison;
 import monopoly.events.PlayerBroke;
 import monopoly.events.PlayerToPrison;
@@ -188,5 +190,25 @@ public final class Board extends GameEventGenerator {
 	 */
 	public double getStartBonus() {
 		return startBonus;
+	}
+	
+	/**
+	 * 
+	 * @return the vector of winners
+	 */
+	public Vector<Player> getWinners(Players players) {
+		double maxCapital = 0;
+		Vector<Player> winners = new Vector<Player>();
+		
+		for (Player p:players.toQueue())
+			if (p.getCapital().getValue() == maxCapital)
+				winners.add(p);
+			else if (p.getCapital().getValue() > maxCapital) {
+				winners.clear();
+				winners.add(p);
+				maxCapital = p.getCapital().getValue();
+			}
+		
+		return winners;
 	}
 }
